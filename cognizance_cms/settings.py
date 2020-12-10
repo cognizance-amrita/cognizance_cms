@@ -83,6 +83,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cognizance_cms.wsgi.application'
 
+import django_heroku
+django_heroku.settings(locals())
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
