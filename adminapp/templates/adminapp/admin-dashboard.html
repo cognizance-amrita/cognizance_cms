@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cognizance</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="{% static 'fonts/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Navigation-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
+</head>
+
+<body style="background: url({% static 'img/tech/619899.jpg' %});">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: #f9f7f7;">
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: bold;color: rgba(71,70,70,0.9);">Admin Dashboard</a>
+            <a href="/logout"><p style="font-weight: bold;color: var(--gray);margin-bottom: 10px;margin-top: 10px;margin-right: 20px;">LOGOUT</p></a>
+        </div>
+    </nav>
+    <div style="margin-top: 100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;border-radius: 12px;margin: 10px;">
+                        <div class="card-body" style="height: 266px;">
+                          <a class="nav-link" href="{% url 'members' %}"> 
+                             <h4 class="card-title" style="margin-top: 20px;margin-bottom: 8px;">Members</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/Profile-Male-PNG.png' %}">
+                          </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;border-radius: 12px;margin: 10px;">
+                        <div class="card-body">
+                           <a class="nav-link" href="{% url 'groups' %}"> 
+                               <h4 class="card-title" style="margin-top: 20px;margin-bottom: 8px;">Groups</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/PngItem_1052269.png' %}">
+                           </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;margin: 10px;border-radius: 12px;">
+                        <div class="card-body">
+                          <a class="nav-link" href="{% url 'tasks' %}"> 
+                            <h4 class="card-title" style="margin-top: 20px;margin-bottom: 8px;">Tasks</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/tasks_thumbnail.png' %}">
+                          </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;border-radius: 12px;margin: 10px;">
+                        <div class="card-body" style="height: 266px;">
+                           <a class="nav-link" href="{% url 'announcements' %}">    
+                              <h4 class="card-title" style="margin-top: 20px;margin-bottom: 8px;">Announcements</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/annountmt.png' %}">
+                           </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;margin: 10px;border-radius: 12px;">
+                        <div class="card-body" style="height: 266px;">
+                            <h4 class="card-title" style="margin-top: 20px;margin-bottom: 8px;">Meetings</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/hiclipart.com.png' %}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;border-radius: 12px;margin: 10px;">
+                        <div class="card-body">
+                            <h4 class="card-title" style="margin-top: 20px;margin-bottom: 8px;">Status Updates</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/writing_thumbnail.png' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 40px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;margin: 10px;border-radius: 12px;">
+                        <div class="card-body" style="height: 266px;">
+                            <h4 class="card-title" style="margin-top: 20px;margin-bottom: 8px;">Achievements</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/trphy_logo.jpg' %}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;border-radius: 16px;margin: 10px;">
+                        <div class="card-body" style="height: 266px;">
+                            <h4 class="card-title" style="margin-top: 20px;margin-bottom: 8px;">Gallery</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 150px;" src="{% static 'img/tech/gallery-10.png' %}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;margin: 10px;border-radius: 12px;">
+                        <div class="card-body">
+                            <h4 class="card-title" style="margin-top: 20px;margin-bottom: 8px;">Profile</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/Profile-Male-PNG.png' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'js/smoothproducts.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'js/Simple-Slider.js' %}"></script>
+</body>
+
+</html>

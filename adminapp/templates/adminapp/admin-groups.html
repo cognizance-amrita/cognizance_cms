@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cognizance</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="{% static 'fonts/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Navigation-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
+</head>
+
+<body style="background: url({% static 'img/tech/619899.jpg' %});">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: #f9f9f9;">
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: 650;color: rgba(25,25,25,0.9);">Groups</a></div>
+    </nav>
+    <div class="card">
+        <div class="card-body">
+            <h1 style="width: auto;font-size: 25px;">Manager<a href='/adminapp/add-group/'><button class="btn btn-primary" type="button" style="margin-left: 800px;">Add Group</button></a></h1>
+            <h1 style="font-size: 18px;color: rgb(82,83,85);">Count: {{counts}}</h1>
+        </div>
+    </div>
+    <div class="table-responsive" style="background: #f9f8f8;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Group Name</th>
+                    <th>Operations</th>
+                </tr>
+                {% for group in displayGroups %}
+                    <tr>
+                        <td> {{group.name}} </td>
+                        <td>
+                            <a href="/admin/auth/group/{{group.id}}/change/"><button class="btn btn-primary text-right" type="button" style="backgroundColor=green;">Edit</button>
+                            <a href = "/admin/auth/group/{{group.id}}/delete"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">Delete</button></a>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'js/smoothproducts.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'js/Simple-Slider.js' %}"></script>
+</body>
+
+</html>

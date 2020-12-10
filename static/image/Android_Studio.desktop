@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Android Studio
+Exec=/home/techwizzie/android-studio/bin/studio.sh
+Comment=
+Terminal=false
+Icon=/home/techwizzie/android-studio/bin/studio.png
+Type=Application

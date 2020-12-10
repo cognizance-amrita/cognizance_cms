@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cognizance</title>
+    <link rel="stylesheet" href="{% static '/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static '/css/styles.min.css' %}">
+</head>
+
+<body style="background: url({% static '/img/tech/619899.jpg' %});">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: #fcfbfb;">
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: bold;color: rgba(74,72,72,0.9);">Members</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div
+                class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav"></ul>
+        </div>
+        </div>
+    </nav>
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Manager<a href = "{% url 'add-members' %}"><button class="btn btn-primary text-right" type="button" style="margin-left: 800px;">Add Members</button></a></h4>
+            <h6 class="text-muted card-subtitle mb-2">Count: {{counts}}</h6>
+        </div>
+    </div>
+    <div class="table-responsive" style="background: #f9f6f6;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Members</th>
+                    <th>Email address</th>
+                    <th>Username</th>
+                    <th>Role</th>
+                    <th>Operation</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in displayUserNames %}
+                <tr>
+                    <td>{{user.fullname}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.role}}</td>
+                    <td>
+                        <a href="/admin/adminapp/member/{{user.id}}/change/"><button class="btn btn-primary text-right" type="button" style="backgroundColor=green;">Edit</button>
+                        <a href = "/admin/adminapp/member/{{user.id}}/delete"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">Delete</button></a>
+                    </td>
+
+                </tr>
+            {% endfor %}
+            
+            </tbody>
+        </table>
+    </div>
+    <script src="{% static '/js/jquery.min.js' %}"></script>
+    <script src="{% static '/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static '/js/script.min.js' %}"></script>
+</body>
+
+</html>

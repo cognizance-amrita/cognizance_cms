@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cognizance</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="{% static 'fonts/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Navigation-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
+</head>
+
+<body style="background: url({% static 'img/tech/619899.jpg' %});">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: #f8f6f6;">
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: 600;">Dashboard</a>
+            <a href="\logout"><p style="margin-top: 10px;margin-right: 25px;font-weight: bold;color: var(--gray);">LOGOUT</p></a><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        </div>
+    </nav>
+    <div style="margin-top: 100px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="width: auto;border-radius: 12px; margin: 10px">
+                        <div class="card-body" style="text-align: center;">
+                            <h4 class="card-title" style="font-size: 32px;width: auto;margin-top: 20px;margin-bottom: 8px;">Tasks</h4><img src="{% static 'img/tech/tasks_thumbnail.png' %}" style="width: 120px;height: 120px;margin-top: 25px;margin-bottom: 25px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="width: auto;border-radius: 12px; margin: 10px;">
+                        <div class="card-body" style="text-align: center;">
+                            <h4 class="card-title" style="font-size: 32px;width: auto;margin-top: 20px;margin-bottom: 8px;">Requests</h4><img style="width: 120px;height: 120px;margin-top: 25px;margin-bottom: 25px;" src="{% static 'img/tech/writing_thumbnail.png' %}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card" data-bs-hover-animate="pulse" style="width: auto;border-radius: 12px; margin: 10px">
+                        <div class="card-body" style="text-align: center;">
+                            <h4 class="card-title" style="font-size: 32px;margin-top: 20px;margin-bottom: 8px;">Profile</h4><img style="width: 120px;height: 120px;margin-top: 25px;margin-bottom: 25px;" src="{% static 'img/tech/Profile-Male-PNG.png' %}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'js/smoothproducts.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'js/Simple-Slider.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+django
+pillow
+psycopg2-binary
+requests
+discord.py

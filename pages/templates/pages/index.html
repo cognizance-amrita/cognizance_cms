@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cognizance</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="{% static 'fonts/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Navigation-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
+    <style>
+    h1{
+        -webkit-text-stoke: 0.3vw #383d52;
+    }
+    h1::before{
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        color: #01fe87;
+        -webkit-text-stroke: 0vw #383d52;
+        border-right: 2px solid #01fe87;
+        overflow: hidden;
+        animation: animate 6s linear infinite;
+        repeat:norepeat;
+
+    }
+    @keyframes animate 
+    {
+        0%,10%,100%{
+            width: 0;
+        }
+        70%,90%{
+            width:100%;
+        }
+    }
+    </style>
+</head>
+
+<body style="background: rgb(20,20,21);">
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style="background: rgb(20,20,21);">
+        <div class="container"><a class="navbar-brand logo" href="#" style="font-weight: bold;color: var(--orange);font-family: ABeeZee, sans-serif;">Cognizance</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">LOGIN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">GALLERY</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'achievements' %}">ACHIEVEMENTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'applications' %}">APPLY</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact_us' %}">ABOUT US</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page landing-page">
+        <section class="clean-block clean-hero" style="color: transparent;background: url({% static 'img/tech/Intro-HELLO-FUTURE-1920x1080_v2.gif' %}) bottom left space, #080808;">
+            <h1 data-text="COGNIZANCE" style="color: rgba(246,248,249,0.85);filter: brightness(80%);letter-spacing: 9px;font-weight: bold;font-family: ABeeZee, sans-serif;font-size: 65px;margin-right: 50%;">COGNIZANCE</h1><br><br>
+    </section>
+    <p style="color: rgba(246,248,249,0.85);filter: brightness(80%);letter-spacing: 3px; margin-bottom: 30px; margin-left: 12%; font-family: ABeeZee, sans-serif;font-size: 35px;">A student club for innovative minds</p>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="{% url 'home' %}">Home</a></li>
+                        <li><a href="#">Admin</a></li>
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="{% url 'achievements' %}">Achievements</a></li>
+                        <li><a href="{% url 'contact_us' %}">Contact us</a></li>
+                        <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2020 Copyright - Cognizance</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'js/smoothproducts.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'js/Simple-Slider.js' %}"></script>
+</body>
+
+</html>
