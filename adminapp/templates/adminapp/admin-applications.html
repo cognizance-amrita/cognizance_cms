@@ -26,17 +26,33 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title" style="font-size: 22px;margin-top: 10px;">Reviewer Panel</h4>
+            <h6 class="text-muted card-subtitle mb-2">Count: {{count}}</h6>
             <div class="table-responsive" style="margin-top: 30px;">
                 <table class="table">
                     <thead>
                         <tr>
                             <th style="width: 230px;">Application Number</th>
-                            <th style="width: 270px;">Applicant Name</th>
-                            <th style="width: 150px;">Applied On</th>
-                            <th>Status</th>
+                            <th style="width: 300px;">Applicant Name</th>
+                            <th style="width: 220px;">Applied On</th>
+                            <th style="width: 240px;">Status</th>
                             <th>Reviewer</th>
                             <th>Operations</th>
                         </tr>
+                        {% for application in applications %}
+                            <td>{{application.id}}</td>
+                            <td>{{application.fullname}}</td>
+                            <td>{{application.applied_on}}</td>
+                            <td>{{application.status}}</td>
+                            <td>{{application.reviewer}}</td>
+                            {% if application.status == 'Under review' %}
+                                 <td>
+                                 <a href = "/admin/membersapp/application/{{user.id}}/change"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">Review</button></a>
+                                </td>
+                            {% else %}
+                                <td>Reviewed</td>
+                            {% endif %}
+                           
+                        {% endfor %}
                     </thead>
                     <tbody></tbody>
                 </table>

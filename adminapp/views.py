@@ -4,6 +4,7 @@ from .decorators import unAuthenticated_user, allowed_users
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import get_user_model
 from .models import Member, Task
+from pages.models import Application
 from .announcer import Announcer
 
 # Create your views here.
@@ -26,8 +27,10 @@ def announcements(request):
     return render(request, 'adminapp/announcements.html')
 
 def applications(request):
+    applications = Application.objects.all()
+    counts = Application.objects.count
 
-    return render(request, 'adminapp/admin-applications.html')
+    return render(request, 'adminapp/admin-applications.html', {'applications':applications, 'count':counts})
 
 @allowed_users(allowed_roles=['administrator'])
 def members(request):
