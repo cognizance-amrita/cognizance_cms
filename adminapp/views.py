@@ -25,6 +25,10 @@ def announcements(request):
 
     return render(request, 'adminapp/announcements.html')
 
+def applications(request):
+
+    return render(request, 'adminapp/admin-applications.html')
+
 @allowed_users(allowed_roles=['administrator'])
 def members(request):
     roles = []
