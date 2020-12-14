@@ -32,8 +32,19 @@ def applications(request):
 
 def reviewing(request, application_id):
     application = Application.objects.get(id=application_id)
+
+    if request.method == 'POST':
+        status = request.POST.get('status')
+        application.status = status
+        cusr = Member.objects.get(username=request.user.username)
+        rev_name = cusr.fullname
+        application.reviewer = rev_name
+        application.save()
+        return redirect("applications")
     
     return render(request, 'adminapp/admin-reviewing.html', {'application':application})
+
+
 
 
 @allowed_users(allowed_roles=['administrator'])

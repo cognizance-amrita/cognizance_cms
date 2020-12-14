@@ -58,7 +58,9 @@
             <h1 style="font-size: 20px;font-weight: bold;color: var(--gray);margin-top: 10px;margin-bottom: 10px;">Results</h1>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Status</h4><select class="custom-select" style="height: 50px;width: 270px;padding: 15px;border-style: solid;">
+                    <h4 class="card-title">Status</h4><form method="post">
+                    {% csrf_token %}
+                    <select class="custom-select" style="height: 50px;width: 270px;padding: 15px;border-style: solid;" name="status">
                         <optgroup label="Status">
                             <option value="Under review" selected="">Under review</option>
                             <option value="Accepted">Accepted</option>
@@ -66,7 +68,7 @@
                         </optgroup>
                     </select>
                 </div>
-            </div><button class="btn btn-primary" type="button" style="margin-top: 30px;margin-bottom: 20px;margin-left: 10px;">Submit Review</button>
+            </div><button class="btn btn-primary" type="submit" style="margin-top: 30px;margin-bottom: 20px;margin-left: 10px;">Submit Review</button></form>
         </div>
     </div>
     <script src="{% static 'js/jquery.min.js' %}"></script>

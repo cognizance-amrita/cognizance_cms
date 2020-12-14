@@ -39,6 +39,7 @@
                             <th>Operations</th>
                         </tr>
                         {% for application in applications %}
+                        <tr>
                             <td>{{application.id}}</td>
                             <td>{{application.fullname}}</td>
                             <td>{{application.applied_on}}</td>
@@ -51,7 +52,7 @@
                             {% else %}
                                 <td>Reviewed</td>
                             {% endif %}
-                           
+                        </tr>
                         {% endfor %}
                     </thead>
                     <tbody></tbody>
