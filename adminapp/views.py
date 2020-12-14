@@ -22,8 +22,6 @@ def announcements(request):
         ann = Announcer(mention, message)
         ann.announce()
 
-
-
     return render(request, 'adminapp/announcements.html')
 
 def applications(request):
@@ -31,6 +29,12 @@ def applications(request):
     counts = Application.objects.count
 
     return render(request, 'adminapp/admin-applications.html', {'applications':applications, 'count':counts})
+
+def reviewing(request, application_id):
+    application = Application.objects.get(id=application_id)
+    
+    return render(request, 'adminapp/admin-reviewing.html', {'application':application})
+
 
 @allowed_users(allowed_roles=['administrator'])
 def members(request):

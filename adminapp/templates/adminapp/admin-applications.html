@@ -46,7 +46,7 @@
                             <td>{{application.reviewer}}</td>
                             {% if application.status == 'Under review' %}
                                  <td>
-                                 <a href = "/admin/membersapp/application/{{user.id}}/change"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">Review</button></a>
+                                 <a href = "/adminapp/reviewing/{{application.id}}"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">Review</button></a>
                                 </td>
                             {% else %}
                                 <td>Reviewed</td>

@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cognizance</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="{% static 'fonts/simple-line-icons.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Navigation-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
+</head>
+
+<body style="background: url({% static 'img/tech/619899.jpg' %});">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: #f9f7f7;">
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: bold;color: var(--dark);">Application Review</a><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+    </nav>
+    <div class="card" style="margin-top: 40px;margin-right: 30px;margin-left: 30px;margin-bottom: 30px;">
+        <div class="card-body" style="padding: 35px;border-color: var(--orange);">
+            <hr style="color: var(--dark);background: #f7822e;border-width: 9px;border-color: var(--orange);">
+            <h1 style="font-size: 18px;margin-top: 10px;margin-left: 0px;margin-bottom: 10px;font-weight: bold;color: var(--gray);padding: 8px;">Application number: &nbsp;{{application.id}}</h1>
+            <hr style="color: var(--dark);background: #514f4f;border-width: 9px;border-color: var(--orange);">
+            <h1 style="width: auto;max-width: auto;font-size: 33px;font-family: ABeeZee, sans-serif;margin-top: 30px;">{{application.fullname}}</h1>
+            <p style="font-size: 20px;margin-top: 20px;"><b>{{application.department}}</b> &nbsp;Department</p>
+            <p style="font-size: 20px;margin-top: 20px;">From &nbsp;<b>{{application.ac_year}}</b></p>
+            <p style="font-size: 20px;margin-top: 20px;">I'm interested in &nbsp;<b>{{application.domain}}</b></p>
+            <p style="font-size: 18px;margin-top: 20px;color: var(--gray);">Applied on  &nbsp;<b>{{application.applied_on}}</b></p>
+            <hr style="border-width: 7px;margin-top: 20px;">
+            <h1 style="font-size: 20px;font-weight: bold;color: var(--gray);margin-top: 10px;margin-bottom: 10px;">Questions</h1>
+            <div class="card" style="border-width: 2px;border-style: solid;margin-top: 20px;">
+                <div class="card-body" style="padding: 25px;">
+                    <h4 class="card-title" style="font-family: Montserrat, sans-serif;font-size: 20px;font-weight: bold;">Why do you wish to join this club ?</h4>
+                    <p style="margin-top: 20px;">{{application.ques1}}</p>
+                </div>
+            </div>
+            <div class="card" style="border-width: 2px;border-style: solid;margin-top: 20px;">
+                <div class="card-body" style="padding: 25px;">
+                    <h4 class="card-title" style="font-family: Montserrat, sans-serif;font-size: 20px;font-weight: bold;">Write about yourself which helps us to make you, our preference</h4>
+                    <p style="margin-top: 20px;">{{application.writeup}}</p>
+                </div>
+            </div>
+            <div class="card" style="border-width: 2px;border-style: solid;margin-top: 20px;">
+                <div class="card-body" style="padding: 25px;">
+                    <h4 class="card-title" style="font-family: Montserrat, sans-serif;font-size: 20px;font-weight: bold;">Experience (if any)</h4>
+                    <p style="margin-top: 20px;">{{application.experience}}</p>
+                </div>
+            </div>
+            <hr style="border-width: 7px;margin-top: 20px;">
+            <h1 style="font-size: 20px;font-weight: bold;color: var(--gray);margin-top: 10px;margin-bottom: 10px;">Results</h1>
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Status</h4><select class="custom-select" style="height: 50px;width: 270px;padding: 15px;border-style: solid;">
+                        <optgroup label="Status">
+                            <option value="Under review" selected="">Under review</option>
+                            <option value="Accepted">Accepted</option>
+                            <option value="Rejected">Rejected</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div><button class="btn btn-primary" type="button" style="margin-top: 30px;margin-bottom: 20px;margin-left: 10px;">Submit Review</button>
+        </div>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'js/smoothproducts.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'js/Simple-Slider.js' %}"></script>
+</body>
+
+</html>
