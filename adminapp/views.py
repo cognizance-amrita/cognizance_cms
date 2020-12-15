@@ -6,6 +6,11 @@ from django.contrib.auth import get_user_model
 from .models import Member, Task
 from pages.models import Application
 from .announcer import Announcer
+from django.core.mail import send_mail
+from django.core import mail
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 # Create your views here.
 
@@ -40,6 +45,24 @@ def reviewing(request, application_id):
         rev_name = cusr.fullname
         application.reviewer = rev_name
         application.save()
+        email = application.email
+        if application.status == 'Accepted':
+            template = render_to_string('adminapp/accepted-mail-template.html',{'name':application.fullname})
+            subject = 'Congratulations, you\'re in! 🎉'
+        if application.status == 'Rejected':
+            template = render_to_string('adminapp/rejected-mail-template.html',{'name':application.fullname})
+            subject = 'Better luck next time 😔'
+        plain_msg = strip_tags(template)
+        mail.send_mail(
+            subject,
+            plain_msg,
+            settings.EMAIL_HOST_USER,
+            [email],
+            html_message=template,
+        )
+      #  mail.fail_silently = False
+      #  mail.send()
+
         return redirect("applications")
     
     return render(request, 'adminapp/admin-reviewing.html', {'application':application})
