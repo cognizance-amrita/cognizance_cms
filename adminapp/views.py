@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .decorators import unAuthenticated_user, allowed_users
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import get_user_model
-from .models import Member, Task
+from .models import Member, Task, Submission
 from pages.models import Application
 from .announcer import Announcer
 from django.core.mail import send_mail
@@ -34,6 +34,15 @@ def applications(request):
     counts = Application.objects.count
 
     return render(request, 'adminapp/admin-applications.html', {'applications':applications, 'count':counts})
+
+def task_submissions(request,task_id):
+    submissions = Submission.objects.all()
+    count = 0
+    for s in submissions:
+        if s.task_id == task_id:
+            count = count + 1
+    return render(request, 'adminapp/task-submissions.html',{'count':count, 'submissions':submissions, 'task_id':task_id})
+
 
 def reviewing(request, application_id):
     application = Application.objects.get(id=application_id)

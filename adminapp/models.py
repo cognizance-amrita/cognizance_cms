@@ -69,3 +69,15 @@ class Task(models.Model):
     def __str__(self):
         return self.title
     
+class Submission(models.Model):
+
+    task_id = models.IntegerField(max_length=10, null=True)
+    fullname = models.CharField(max_length=200, null=True)
+    score = models.FloatField(max_length=50, null=True)
+    submitted_on = models.DateTimeField(null=True)
+    submission_file = models.FileField(null=True)
+    submission_text = models.CharField(max_length=500, null=True)
+
+    def __str__(self):
+        return self.fullname
+    
