@@ -43,7 +43,13 @@
                                     <td>{{sub.fullname}}</td>
                                     <td>{{sub.submitted_on}}</td>
                                     <td>{{sub.score}}</td>
-                                    <td>Let's see<td>
+                                    <td>
+                                        {% if sub.score == None or sub.score == 0 %}
+                                            <a href="/admin/auth/group/{{group.id}}/change/"><button class="btn btn-primary text-right" type="button" style="background-color:red; border-color:red;">Evaluate</button></a>
+                                        {% else %}
+                                            <a href="/admin/auth/group/{{group.id}}/change/"><button class="btn btn-primary text-right" type="button" style="background-color:green; border-color:green;">View</button></a>
+                                        {% endif %}
+                                    </td>
                                 {% endif %}
                             </tr>
                         {% endfor %}

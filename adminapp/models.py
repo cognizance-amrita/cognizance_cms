@@ -71,12 +71,24 @@ class Task(models.Model):
     
 class Submission(models.Model):
 
-    task_id = models.IntegerField(max_length=10, null=True)
+    members = Member.objects.all()
+
+    auth_names = []
+
+    for m in members:
+        auth_names.append((m.fullname,m.fullname))
+    
+    auth_names = tuple(auth_names)
+
+    task_id = models.IntegerField(null=True)
     fullname = models.CharField(max_length=200, null=True)
     score = models.FloatField(max_length=50, null=True)
     submitted_on = models.DateTimeField(null=True)
     submission_file = models.FileField(null=True)
     submission_text = models.CharField(max_length=500, null=True)
+    evaluator = models.CharField(choices=auth_names, max_length=200, null=True)
+    feedback = models.CharField(max_length=500, null=True)
+    
 
     def __str__(self):
         return self.fullname
