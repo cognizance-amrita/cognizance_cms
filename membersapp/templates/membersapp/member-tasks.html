@@ -24,7 +24,7 @@
     </nav>
     <div class="card">
         <div class="card-body">
-            <h1 style="font-size: 25px;font-weight: 600;color: rgb(118,119,120);">Manager<a href="/admin/adminapp/task/add/"><button class="btn btn-primary" type="button" style="margin-left: 800px;">Add Task</button></a></h1>
+            <h1 style="font-size: 25px;font-weight: 600;color: rgb(118,119,120);">Your tasks</h1>
         </div>
     </div>
     <div class="table-responsive" style="background: #f2f0f0;">
@@ -32,26 +32,25 @@
             <thead>
                 <tr>
                     <th>Task name</th>
-                    <th>Group</th>
                     <th>Author</th>
                     <th>Start Date</th>
                     <th>Due Date<br></th>
                     <th>Operations</th>
                 </tr>
-                <!--{% for t in displayTasks %}
+                {% for t in tasks %}
+                    {% if domain == t.group %}
                     <tr>
                         <td>{{t.title}}</td>
-                        <td>{{t.group}}</td>
                         <td>{{t.author}}</td>
                         <td>{{t.starting_time}}</td>
                         <td>{{t.deadline}}</td>
                         <td>
-                            <a href="/admin/adminapp/task/{{t.id}}/change/"><button class="btn btn-primary text-right" type="button" style="backgroundColor=green;">Edit</button></a>
-                            <a href = "/admin/adminapp/task/{{t.id}}/delete/"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">Delete</button></a>
-                            <a href = "/adminapp/submissions/{{t.id}}/"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">View Submissions</button></a>
+                            <a href="/admin/adminapp/task/{{t.id}}/change/"><button class="btn btn-primary text-right" type="button" style="backgroundColor=green;">View</button></a>
+                            <a href = "/admin/adminapp/task/{{t.id}}/delete/"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">Submit</button></a>
                         </td>
                     </tr>
-                {% endfor %}-->
+                    {% endif %}
+                {% endfor %}
             </thead>
             <tbody></tbody>
         </table>
