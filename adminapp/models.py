@@ -6,6 +6,16 @@ class Member(models.Model):
         ('Member','Member'),
         ('Administrator','Administrator')
     )
+
+    group_names = []
+
+    query_set = Group.objects.all()
+
+    for g in query_set:
+        group_names.append((g.name,g.name))
+    
+    group_names = tuple(group_names)
+
     fullname = models.CharField(max_length=50, null=True)
     username = models.CharField(max_length=50, null=True)
     phone = models.CharField(max_length=10, null=True)

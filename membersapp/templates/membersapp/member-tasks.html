@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cognizance</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Navigation-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
+</head>
+
+<body style="background: url({% static 'img/tech/619899.jpg' %});">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: #f5f1f1;">
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: 700;color: rgba(81,80,80,0.9);">Tasks</a><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+    </nav>
+    <div class="card">
+        <div class="card-body">
+            <h1 style="font-size: 25px;font-weight: 600;color: rgb(118,119,120);">Manager<a href="/admin/adminapp/task/add/"><button class="btn btn-primary" type="button" style="margin-left: 800px;">Add Task</button></a></h1>
+        </div>
+    </div>
+    <div class="table-responsive" style="background: #f2f0f0;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Task name</th>
+                    <th>Group</th>
+                    <th>Author</th>
+                    <th>Start Date</th>
+                    <th>Due Date<br></th>
+                    <th>Operations</th>
+                </tr>
+                <!--{% for t in displayTasks %}
+                    <tr>
+                        <td>{{t.title}}</td>
+                        <td>{{t.group}}</td>
+                        <td>{{t.author}}</td>
+                        <td>{{t.starting_time}}</td>
+                        <td>{{t.deadline}}</td>
+                        <td>
+                            <a href="/admin/adminapp/task/{{t.id}}/change/"><button class="btn btn-primary text-right" type="button" style="backgroundColor=green;">Edit</button></a>
+                            <a href = "/admin/adminapp/task/{{t.id}}/delete/"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">Delete</button></a>
+                            <a href = "/adminapp/submissions/{{t.id}}/"><button class="btn btn-primary text-right" type="button" style="margin-left: 10px;backgroundColor=red;">View Submissions</button></a>
+                        </td>
+                    </tr>
+                {% endfor %}-->
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'js/smoothproducts.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'js/Simple-Slider.js' %}"></script>
+</body>
+
+</html>
