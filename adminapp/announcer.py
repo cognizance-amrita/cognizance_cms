@@ -11,7 +11,7 @@ class Announcer:
         self.cMessage = message
 
     def announce(self):
-        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/784819553779712082/2cMicOmikSrR8Yua5TAFE9rUWjw_KoKdkcs4UJZ7bJ39LSviYuwGO9mL5xVC-ngLuZV0'
+        webhook = Webhook.from_url('https://discordapp.com/api/webhooks/790274622880612393/cflyX0RGsh5kqkz5x2LRqe6cJZpSt7dH6RY5-PvQKSrOP5720qTkoEbIJY9DPkT_Y69T'
         , adapter= RequestsWebhookAdapter()
         )
         msg = 'This is an announcement for => ' + self.cMention + '\n' + self.cMessage
