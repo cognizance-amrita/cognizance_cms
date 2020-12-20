@@ -93,7 +93,7 @@ class Submission(models.Model):
     task_id = models.IntegerField(null=True)
     fullname = models.CharField(max_length=200, null=True)
     score = models.FloatField(max_length=50, null=True)
-    submitted_on = models.DateTimeField(null=True)
+    submitted_on = models.DateTimeField(auto_now_add=True)
     submission_file = models.FileField(null=True)
     submission_text = models.CharField(max_length=500, null=True)
     evaluator = models.CharField(choices=auth_names, max_length=200, null=True)
