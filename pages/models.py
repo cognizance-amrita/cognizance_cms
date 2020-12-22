@@ -37,7 +37,7 @@ class Application(models.Model):
         ('Accepted','Accepted'),
         ('Rejected','Rejected')
     )
-
+    '''
     members = []
     mems = Member.objects.all()
 
@@ -46,7 +46,8 @@ class Application(models.Model):
             members.append((m.fullname,m.fullname))
 
     members = tuple(members)
-
+    '''
+    
     fullname = models.CharField(max_length=200, null=True)
     email = models.EmailField(max_length=100, null=True)
     department = models.CharField(max_length=100, null=True, choices=departments)
@@ -57,7 +58,7 @@ class Application(models.Model):
     applied_on = models.DateTimeField(auto_now_add=True, null=True)
     status = models.CharField(max_length=50, null=True, choices=statuses)
     experience = models.TextField(max_length=500, null=True)
-    reviewer = models.CharField(max_length=100, null=True, choices=members)
+    reviewer = models.OneToOneField(Member,null=True, on_delete=models.SET_NULL)
 
 
     def __str__(self):

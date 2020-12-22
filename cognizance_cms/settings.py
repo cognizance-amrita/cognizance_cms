@@ -12,12 +12,14 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 import dj_database_url
+import django_heroku
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 STATIC_URL = '/static/'
-#STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
 
 FILE_ROOT = os.path.join(BASE_DIR, 'static/task/file')
 FILE_URL = '/file/'
@@ -92,16 +94,14 @@ WSGI_APPLICATION = 'cognizance_cms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER' : 'postgres',
-        'PASSWORD': 'admin123',
-        'HOST': '127.0.0.1',
+        'NAME': 'd4lvt6b50gj80s',
+        'USER' : 'zndqqbmtvctsvm',
+        'PASSWORD': 'ff9c4967dac417062a0f82f001927cfb596c37431002c3a278c67a9de09b25cc',
+        'HOST': 'ec2-54-224-175-142.compute-1.amazonaws.com',
         'PORT': '5432'
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -146,9 +146,13 @@ STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'cognizance_cms/static')
 ]
 
+
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'cognizance.amrita@gmail.com'
 EMAIL_HOST_PASSWORD = 'asechn123'
+
+django_heroku.settings(locals())
+

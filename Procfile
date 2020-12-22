@@ -1,1 +1,1 @@
-web: gunicorn cognizance_cms.wsgi --log-file -
+web: gunicorn cognizance_cms.wsgi
