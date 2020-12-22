@@ -97,6 +97,11 @@ def groups(request):
     counts = Group.objects.count
     return render(request, 'adminapp/admin-groups.html',{'displayGroups':groups, 'counts':counts})
 
+def delete(request, member_id):
+    Member.objects.filter(id=member_id).delete()
+    return redirect('members')
+
+
 def add_group(request):
     if request.method == 'POST':
         group_name = request.POST.get('group_name_field')

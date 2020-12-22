@@ -11,6 +11,7 @@ urlpatterns = [
     path('submissions/<int:task_id>/',views.task_submissions, name='submissions'),
     path('add-group/',views.add_group,name='add-group'),
     path('reviewing/<str:application_id>/', views.reviewing, name='reviewing'),
+    path('delete/<int:mid>/', views.delete),
   #  path('submit-review/<str:application_id>/', views.submit_review, name='submit-review'),
     path('applications/', views.applications, name='applications'),
     path('tasks/',views.tasks, name='tasks')
