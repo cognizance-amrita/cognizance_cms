@@ -59,12 +59,12 @@ class Task(models.Model):
     ''' 
     title = models.CharField(max_length=200, null=True)
     goal = models.CharField(max_length=500, null=True)
-    author = models.OneToOneField(Member, null=True, on_delete=models.SET_NULL)
+    author = models.OneToOneField(Member.fullname, null=True, on_delete=models.SET_NULL)
     content = models.TextField(max_length=2000, null=True)
     deadline = models.DateTimeField(null=True)
     starting_time = models.DateTimeField(null=True)
     max_score = models.FloatField(null=True)
-    group = models.OneToOneField(Group, null=True, on_delete=models.SET_NULL)
+    group = models.OneToOneField(Group.name, null=True, on_delete=models.SET_NULL)
     resource_file = models.FileField(null=True)
     submission_link = models.CharField(max_length=200, null=True)
 
