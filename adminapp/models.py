@@ -38,33 +38,33 @@ class Achievement(models.Model):
 
 class Task(models.Model):
     #title,desc, goal, author, content, zipfile, submission link, deadline, starting_time, max_score, group
-    '''
-        members = Member.objects.all()
+    
+    members = Member.objects.all()
 
-        auth_names = []
+    auth_names = []
 
-        for m in members:
-            auth_names.append((m.fullname,m.fullname))
+    for m in members:
+        auth_names.append((m.fullname,m.fullname))
         
-        auth_names = tuple(auth_names)
+    auth_names = tuple(auth_names)
 
-        query_set = Group.objects.all()
+    query_set = Group.objects.all()
 
-        group_names = []
+    group_names = []
 
-        for g in query_set:
-            group_names.append((g.name,g.name))
+    for g in query_set:
+        group_names.append((g.name,g.name))
         
-        group_names = tuple(group_names)
-    ''' 
+    group_names = tuple(group_names)
+     
     title = models.CharField(max_length=200, null=True)
     goal = models.CharField(max_length=500, null=True)
-    author = models.OneToOneField(Member, null=True, on_delete=models.CASCADE)
+    author = models.CharField(max_length=200, null=True, choices=auth_names)
     content = models.TextField(max_length=2000, null=True)
     deadline = models.DateTimeField(null=True)
     starting_time = models.DateTimeField(null=True)
     max_score = models.FloatField(null=True)
-    group = models.OneToOneField(Group, null=True, on_delete=models.CASCADE)
+    group = models.CharField(max_length=200, null=True, choices=group_names)
     resource_file = models.FileField(null=True)
     submission_link = models.CharField(max_length=200, null=True)
 
