@@ -59,7 +59,7 @@ class Task(models.Model):
     ''' 
     title = models.CharField(max_length=200, null=True)
     goal = models.CharField(max_length=500, null=True)
-    author = models.OneToOneField(Member.fullname, null=True, on_delete=models.CASCADE)
+    author = models.OneToOneField(Member, null=True, on_delete=models.CASCADE)
     content = models.TextField(max_length=2000, null=True)
     deadline = models.DateTimeField(null=True)
     starting_time = models.DateTimeField(null=True)
