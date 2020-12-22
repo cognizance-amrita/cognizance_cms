@@ -38,7 +38,7 @@ def apply(request):
             experience=experience
         )
         ap.save()
-        return redirect('applications')
+        return redirect('home')
         
     return render(request, 'pages/apply.html')
 
