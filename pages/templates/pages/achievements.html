@@ -41,7 +41,7 @@
                 <div class="row justify-content-center">
                     {% for achievement in achievements %}
                     <div class="col-sm-6 col-lg-4">
-                        <div class="card clean-card text-center">{{achievement.image}}
+                        <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="{{achievement.image.url}}">
                             <div class="card-body info">
                                 <h4 class="card-title">{{ achievement.title }}</h4>
                                 <p class="card-text">{{ achievement.achievers }}</p>
