@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from adminapp.models import Member
 from .models import Application
+from adminapp.models import Achievement
 
 # Create your views here.
 
@@ -84,7 +85,8 @@ def admin_members(request):
     return render(request, 'adminapp/admin-members.html',{'displayUserNames': displaynames, 'counts':counts, 'role':role})
 
 def achievements(request):
-    return render(request, 'pages/achievements.html')
+    achievements = Achievement.objects.all()
+    return render(request, 'pages/achievements.html',{'achievements':achievements})
 
 def logoutApp(request):
     logout(request)
