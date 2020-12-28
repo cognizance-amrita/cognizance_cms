@@ -150,3 +150,11 @@ def add_members(request):
         return redirect('members')
 
     return render(request, 'adminapp/add-members.html')
+  
+@allowed_users(allowed_roles=['administrator'])  
+def status_updates(request):
+    if request.method == 'POST':
+    	s_date = request.POST.get('Date')
+    	return redirect('statusupdate/{{s_date}}')
+    return render(request, 'adminapp/status_updates.html')
+    
