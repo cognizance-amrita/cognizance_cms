@@ -17,7 +17,7 @@ class Member(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     github_username = models.CharField(max_length=50, null=True)
     discord_handle = models.CharField(max_length=50, null=True)
-    profile_pic = models.ImageField(null=True,upload_to="Profile_Pics/")
+    profile_pic = models.ImageField(null=True, blank=True, upload_to="Profile_Pics/")
 
     def __str__(self):
         return self.fullname
