@@ -16,4 +16,5 @@ urlpatterns = [
     path('applications/', views.applications, name='applications'),
     path('tasks/',views.tasks, name='tasks'),
     path('status-updates/',views.status_updates, name='status-updates'),
+    path('status-updates/<str:date>',views.view_status, name='view-status'),
 ]
