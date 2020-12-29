@@ -16,7 +16,8 @@ from django.utils.html import strip_tags
 
 @allowed_users(allowed_roles=['administrator'])
 def dashboard(request):
-    return render(request, 'adminapp/admin-dashboard.html')
+    s_date = '2020-02-11'
+    return render(request, 'adminapp/admin-dashboard.html',{'s_date':s_date})
 
 def announcements(request):
 
@@ -152,12 +153,9 @@ def add_members(request):
     return render(request, 'adminapp/add-members.html')
   
 @allowed_users(allowed_roles=['administrator'])  
-def status_updates(request):
-    if request.method == 'POST':
-    	s_date = request.POST.get('Date')
-    	return redirect('view_status',{'s_date':s_date}) 
-    return render(request, 'adminapp/status-updates.html')
-    
-def view_status(request,date):
-    return render(request, 'adminapp/view-status.html')
+def status_updates(request,sdate):
+    Date=['2020-02-11','2020-02-15','2020-04-11','2020-01-11','2020-07-09']
+    if sdate in Date:
+    	return render(request, 'adminapp/status-updates.html',{'DATE':Date,'s_date':sdate})
+
     

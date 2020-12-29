@@ -15,6 +15,5 @@ urlpatterns = [
   #  path('submit-review/<str:application_id>/', views.submit_review, name='submit-review'),
     path('applications/', views.applications, name='applications'),
     path('tasks/',views.tasks, name='tasks'),
-    path('status-updates/',views.status_updates, name='status-updates'),
-    path('status-updates/<str:date>',views.view_status, name='view-status'),
+    path('status-updates/<str:sdate>/',views.status_updates, name='status-updates'),
 ]

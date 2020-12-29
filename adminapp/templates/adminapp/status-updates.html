@@ -20,22 +20,36 @@
 
 <body style="background: url({% static 'img/tech/619899.jpg' %});">
    <nav class="navbar navbar-light navbar-expand-md" style="background: #f5f1f1;">
-        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: 700;color: rgba(81,80,80,0.9);">Status Updates</a><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: 700;color: rgba(81,80,80,0.9);">Status Updates</a><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><select name="Date" style="margin-left: 800px;">
+        {% for date in DATE %}
+	    <a href="/adminapp/status-updates/{{date}}/">
+		{% if date == s_date %}
+			<option value="{{date}}" selected>{{date}}</option>
+		{% else %}	
+	            <option value="{{date}}">{{date}}</option>
+	        {% endif %}
+	    </a>
+            {% endfor %}
+        </select>
+        </div>
     </nav>
-    <div class="login-clean" style="background: url({% static 'img/tech/619899.jpg' %});height: 100%;">
-        <form method="post">
-        {% csrf_token %}
-            <div class="form-group"><select class="form-control" name="Date" placeholder="" required>
-            <option value="" selected disabled>YYYY-MM-DD</option>
-            <option>22/12/2020</option>
-<!--            	{% for date in DATE %}
-                <option value="{{date}}">{{date}}</option>
-                {% endfor%}
--->         </select>
-            </div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color:orange; border-color:orange;">VIEW</button></div>
-        </form>
-    </div>	
+    <div class="table-responsive" style="background: #f2f0f0;">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Full Name</th>
+                    <th>Username</th>
+                    <th>Time</th>
+                    <th>Status<br></th>
+                </tr>
+                
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    
+  
 
    <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
