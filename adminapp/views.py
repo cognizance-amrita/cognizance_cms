@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .decorators import unAuthenticated_user, allowed_users
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import get_user_model
-from .models import Member, Task, Submission
+from .models import Member, Task, Submission, StatusUpdate  
 from pages.models import Application
 from .announcer import Announcer
 from django.core.mail import send_mail
@@ -11,12 +11,14 @@ from django.core import mail
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
+import datetime
 
 # Create your views here.
 
 @allowed_users(allowed_roles=['administrator'])
 def dashboard(request):
-    s_date = '2020-02-11'
+    dates = StatusUpdate.objects.order_by('date').values('date').distinct()
+    s_date =  dates[len(dates)-1]['date']
     return render(request, 'adminapp/admin-dashboard.html',{'s_date':s_date})
 
 def announcements(request):
@@ -154,8 +156,18 @@ def add_members(request):
   
 @allowed_users(allowed_roles=['administrator'])  
 def status_updates(request,sdate):
-    Date=['2020-02-11','2020-02-15','2020-04-11','2020-01-11','2020-07-09']
-    if sdate in Date:
-    	return render(request, 'adminapp/status-updates.html',{'DATE':Date,'s_date':sdate})
+    listdictdates = StatusUpdate.objects.order_by('date').values('date').distinct()
+    dates=[] 
+    for i in range(0,len(listdictdates)):
+    	dates.append(listdictdates[i]['date'].strftime("%Y-%m-%d"))
+    details = StatusUpdate.objects.all()	
+    if sdate in dates:
+    	sub_users=[]
+    	for mem in details:
+    	    if (mem.date.strftime("%Y-%m-%d")==sdate):
+    	    	sub_users.append(mem)
+    	print(sub_users)
+    	return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users})
+
 
     
