@@ -155,10 +155,9 @@ def add_members(request):
 def status_updates(request):
     if request.method == 'POST':
     	s_date = request.POST.get('Date')
-    	return redirect('viewstatusupdate') 
-    return render(request, 'adminapp/status_updates.html')
+    	return redirect('view_status',{'s_date':s_date}) 
+    return render(request, 'adminapp/status-updates.html')
     
-def viewstatusupdate(request,date):
-
-    return render(request, 'adminapp/view_status.html')
+def view_status(request,date):
+    return render(request, 'adminapp/view-status.html')
     

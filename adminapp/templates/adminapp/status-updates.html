@@ -25,12 +25,13 @@
     <div class="login-clean" style="background: url({% static 'img/tech/619899.jpg' %});height: 100%;">
         <form method="post">
         {% csrf_token %}
-            <div class="form-group"><select class="form-control" name="Date" placeholder="Date">
+            <div class="form-group"><select class="form-control" name="Date" placeholder="" required>
+            <option value="" selected disabled>YYYY-MM-DD</option>
             <option>22/12/2020</option>
 <!--            	{% for date in DATE %}
                 <option value="{{date}}">{{date}}</option>
                 {% endfor%}
--->                </select>
+-->         </select>
             </div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background-color:orange; border-color:orange;">VIEW</button></div>
         </form>
