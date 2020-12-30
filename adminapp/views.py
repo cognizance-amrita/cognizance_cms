@@ -169,8 +169,9 @@ def status_updates(request,sdate):
     	    	sub_users.append(mem)
     	today = date.today()
     	yesterday = today - timedelta(days = 1) 
+    	latest_date =  listdictdates[len(dates)-1]['date'].strftime("%Y-%m-%d")
     	return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
-    	'today':today.strftime("%Y-%m-%d"),'yesterday':yesterday.strftime("%Y-%m-%d")})
+    	'today':today.strftime("%Y-%m-%d"),'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date})
     	
 
 
