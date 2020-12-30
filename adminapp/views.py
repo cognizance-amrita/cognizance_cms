@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from .models import Member, Task, Submission, StatusUpdate  
 from pages.models import Application
 from .announcer import Announcer
+from .daterange import Daterange
 from django.core.mail import send_mail
 from django.core import mail
 from django.conf import settings
@@ -169,8 +170,15 @@ def status_updates(request,sdate):
     today = date.today()
     yesterday = today - timedelta(days = 1) 
     latest_date =  listdictdates[len(dates)-1]['date'].strftime("%Y-%m-%d")
+    start_dt = date(2020,12,1)
+    alldates = []
+    for dt in Daterange(start_dt, yesterday):
+        alldates.append(dt.strftime("%Y-%m-%d"))
+    nostatus = list(set(alldates) - set(dates))
+    nostatus.sort()
     return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
-    	'today':today.strftime("%Y-%m-%d"),'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date})
+    	'today':today.strftime("%Y-%m-%d"),'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,
+    	'alldates':alldates,'nostatus':nostatus})
     	
 
 
