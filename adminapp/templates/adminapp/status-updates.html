@@ -44,7 +44,9 @@
         </select>-->
         </div>
     </nav>
+     {% if sdate in DATE %}
     <div class="table-responsive" style="background: #f2f0f0;">
+       
         <table class="table">
             <thead>
                 <tr>
@@ -69,6 +71,13 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+    <div class="login-clean" style="background: url({% static 'img/tech/619899.jpg' %});height: 100%;">
+    <center>
+        <div class="btn btn-primary btn-block" style="width:400px; "><h3>No Status Updates Available</h3></div>
+    </center>
+    </div>
+    {% endif %}
     
 	
    <script src="{% static 'js/jquery.min.js' %}"></script>

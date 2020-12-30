@@ -162,15 +162,14 @@ def status_updates(request,sdate):
     for i in range(0,len(listdictdates)):
     	dates.append(listdictdates[i]['date'].strftime("%Y-%m-%d"))
     details = StatusUpdate.objects.all()	
-    if sdate in dates:
-    	sub_users=[]
-    	for mem in details:
-    	    if (mem.date.strftime("%Y-%m-%d")==sdate):
-    	    	sub_users.append(mem)
-    	today = date.today()
-    	yesterday = today - timedelta(days = 1) 
-    	latest_date =  listdictdates[len(dates)-1]['date'].strftime("%Y-%m-%d")
-    	return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
+    sub_users=[]
+    for mem in details:
+    	if (mem.date.strftime("%Y-%m-%d")==sdate):
+    	    sub_users.append(mem)
+    today = date.today()
+    yesterday = today - timedelta(days = 1) 
+    latest_date =  listdictdates[len(dates)-1]['date'].strftime("%Y-%m-%d")
+    return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
     	'today':today.strftime("%Y-%m-%d"),'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date})
     	
 
