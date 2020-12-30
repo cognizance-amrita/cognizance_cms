@@ -12,7 +12,8 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 import datetime
-
+from datetime import date 
+from datetime import timedelta 
 # Create your views here.
 
 @allowed_users(allowed_roles=['administrator'])
@@ -166,8 +167,11 @@ def status_updates(request,sdate):
     	for mem in details:
     	    if (mem.date.strftime("%Y-%m-%d")==sdate):
     	    	sub_users.append(mem)
-    	print(sub_users)
-    	return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users})
+    	today = date.today()
+    	yesterday = today - timedelta(days = 1) 
+    	return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
+    	'today':today.strftime("%Y-%m-%d"),'yesterday':yesterday.strftime("%Y-%m-%d")})
+    	
 
 
     
