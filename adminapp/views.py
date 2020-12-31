@@ -176,10 +176,20 @@ def status_updates(request,sdate):
         alldates.append(dt.strftime("%Y-%m-%d"))
     nostatus = list(set(alldates) - set(dates))
     nostatus.sort()
+    members = Member.objects.all()
+    notsub = []
+    mem = Member.objects.values('username')
+    mem_usr=[]
+    for i in range(0,len(mem)):
+        mem_usr.append(mem[i]['username'])
+    sub_usr=[]
+    for i in range(0,len(sub_users)):
+    	sub_usr.append(sub_users[i].username)
+    notsub= list(set(mem_usr)-set(sub_usr)) 
     return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
     	'today':today.strftime("%Y-%m-%d"),'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,
-    	'alldates':alldates,'nostatus':nostatus})
-    	
+    	'alldates':alldates,'nostatus':nostatus,'notsubmitted':notsub,'members':members})
+
 
 
     

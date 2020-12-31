@@ -46,7 +46,7 @@
     </nav>
      {% if sdate in DATE %}
     <div class="table-responsive" style="background: #f2f0f0;">
-       
+       <h3 align="center">Submitted</h3>
         <table class="table">
             <thead>
                 <tr>
@@ -54,7 +54,6 @@
                     <th>Full Name</th>
                     <th>Username</th>
                     <th>Time</th>
-                    <th>Status<br></th>
                 </tr>
             </thead>
             <tbody>
@@ -64,13 +63,37 @@
                     <td>{{user.fullname}}</td>
                     <td>{{user.username}}</td>
                     <td>{{user.time}}</td>
-                    <td>Submitted</td>
                 </tr>
             {% endfor %}
             
             </tbody>
         </table>
     </div>
+    {% if notsubmitted %}
+    <div class="table-responsive" style="background: #f2f0f0;">
+       <h3 align="center">Not-Submitted</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Full Name</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for user in members %}
+            {% if user.username in notsubmitted %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{user.fullname}}</td>
+                    <td>{{user.username}}</td>
+                </tr>
+            {% endif %}   
+            {% endfor %}
+            
+            </tbody>
+        </table>
+    {% endif %}
     {% else %}
     <div class="login-clean" style="background: url({% static 'img/tech/619899.jpg' %});height: 100%;">
     <center>
