@@ -17,9 +17,6 @@
     <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
     <link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
     <script>
-    function choosendates(){
-    	document.getElementById("datepick").value={{sdate}}
-    }
     function datefunction(){
       var date = document.getElementById("datepick").value;
       if (date){
@@ -32,7 +29,7 @@
     </script>
 </head>
 
-<body style="background: url({% static 'img/tech/619899.jpg' %});" onload="choosendates()" >
+<body style="background: url({% static 'img/tech/619899.jpg' %});"  >
    <nav class="navbar navbar-light navbar-expand-md" style="background: #f5f1f1;">
         <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: 700;color: rgba(81,80,80,0.9);">Status Updates</a><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
         <input type="date" id="datepick" style="margin-left: 400px; margin-right: 100px;" placeholder="YYYY-MM-DD"  value="{{sdate}}" min="2020-12-01" max="{{yesterday}}" oninput="datefunction()" > 
