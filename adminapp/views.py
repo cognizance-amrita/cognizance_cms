@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from .models import Member, Task, Submission, StatusUpdate  
 from pages.models import Application
 from .announcer import Announcer
+from status_update import *
 from .daterange import Daterange
 from django.core.mail import send_mail
 from django.core import mail
