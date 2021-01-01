@@ -40,6 +40,6 @@ From now when you start your work, run ``source bin/activate`` inside the projec
 *Make sure you pull new changes from remote regularly.*
 
 ### Contributors
-* Sanjay T
-* Naresh Kumar B
+* [Sanjay T](https://github.com/sanjay-thiyagarajan)
+* [Naresh Kumar B](https://github.com/TechieNK)
 * Mukesh K
