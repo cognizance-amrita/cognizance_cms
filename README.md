@@ -2,6 +2,8 @@
 
 Club Management System (CMS) is django-based web-app which is specially made for our club. 
 
+![Screenshot](https://github.com/cognizance-amrita/cognizance_cms/blob/master/screenshots/Screen%20Capture_20210101173417.png?raw=true)
+
 
 ## Installation Instructions
 The portal is primarily a django based application, and to set it up we require to have 
@@ -38,6 +40,6 @@ From now when you start your work, run ``source bin/activate`` inside the projec
 *Make sure you pull new changes from remote regularly.*
 
 ### Contributors
-* Sanjay T
-* Naresh Kumar B
-* Mukesh K
+* [Sanjay T](https://github.com/sanjay-thiyagarajan)
+* [Naresh Kumar B](https://github.com/TechieNK)
+* [Mukesh K](https://github.com/mukesh663)
