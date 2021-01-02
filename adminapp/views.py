@@ -200,5 +200,34 @@ def status_updates(request,sdate):
     	'alldates':alldates,'nostatus':nostatus,'notsubmitted':notsub,'members':members})
 
 
+def add_meeting(request):
+    mems = Member.objects.all()
+    grps = Group.objects.all()
+    organisers = []
+    groups = []
+    for m in mems:
+        if m.role == 'Administrator':
+            organisers.append(m)
+    for g in grps:
+        groups.append(g.name)
+
+    if request.method == 'POST':
+        subject = request.POST.get('subject')
+        room_name = request.POST.get('room-name')
+        organiser = request.POST.get('organiser')
+        group = request.POST.get('group')
+        venue = request.POST.get('venue')
+
+        meeting_url = 'https://meet.jit.si/cognizance/'
+        meeting_url = meeting_url + group + room_name
+
+        meeting = Meeting(
+            group=group, subject=subject, organiser=organiser, venue=venue, meeting_link=meeting_url, status='Pending'
+        )
+
+        meeting.save()
+        return redirect('meetings')
+
+    return render(request, 'adminapp/add-meeting.html', {'organisers':organisers, 'groups':groups})
 
     

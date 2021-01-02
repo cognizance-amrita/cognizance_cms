@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cognizance</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Navigation-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
+</head>
+
+<body style="background: url({% static 'img/tech/619899.jpg' %});">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: #eeeaea;">
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: bold;color: var(--gray);">Add Meeting</a></div>
+    </nav>
+    <div class="login-clean" style="height: 100%;background: url({% static 'img/tech/619899.jpg' %});margin-bottom: 0px;padding-bottom: 80px;">
+        <form method="post" style="width: 50%;max-width: 50%;margin-bottom: 30px;height: 680px;border-radius: 25px;">
+        {% csrf_token %}
+            <div class="form-group" style="padding: 15px;border-radius: 4px;border: 1px solid rgb(254,142,56) ;">
+                <h1 style="font-size: 18px;">Subject</h1><input class="form-control" name="subject" type="text" style="margin-top: 10px;background: rgb(250,250,251);border: 0.5px solid var(--blue);border-radius: 65px;" required="">
+                <h1 style="font-size: 18px;margin-top: 20px;">Room name</h1><input class="form-control" name="room-name" type="text" style="margin-top: 10px;background: rgb(250,250,251);border: 0.5px solid var(--blue);border-radius: 65px;" required="">
+                <h1 style="font-size: 18px;margin-top: 20px;">Organiser<select class="form-control" name="organiser" style="margin-top: 10px;">
+                        <optgroup label="Organiser">
+                        {% for o in organisers %}
+                            <option>{{o.fullname}}</option>
+                        {% endfor %}
+                        </optgroup>
+                    </select></h1>
+                <h1 style="font-size: 18px;margin-top: 20px;">Group<select class="form-control" style="margin-top: 10px;" name="group" required="">
+                        <optgroup label="Group">
+                        {% for g in groups %}
+                        <option>{{g}}</option>
+                        {% endfor %}
+                        </optgroup>
+                    </select></h1>
+            </div>
+            <div class="form-group" style="padding: 15px;border-radius: 3px;border: 0.5px solid rgb(254,142,56) ;">
+                <h1 style="font-size: 18px;">Event Venue &amp; Date</h1><input class="form-control" type="datetime" style="margin-top: 10px;" required="" name="venue">
+            </div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background: rgb(254,142,56);margin-top: 40px;">Add meeting</button></div>
+        </form>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'js/smoothproducts.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'js/Simple-Slider.js' %}"></script>
+</body>
+
+</html>
