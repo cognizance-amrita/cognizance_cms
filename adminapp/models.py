@@ -107,7 +107,7 @@ class StatusUpdate(models.Model):
     def __str__(self):
         return str(self.date)+"-"+self.username
 
-class Meetings(models.Model):
+class Meeting(models.Model):
 
     members = Member.objects.all()
 

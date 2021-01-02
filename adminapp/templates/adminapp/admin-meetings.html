@@ -25,7 +25,7 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Meeting Scheduler<button class="btn btn-primary" type="button" style="margin-left: 60%;">Add meeting</button></h4>
-            <h6 class="text-muted card-subtitle mb-2">Meetings this week</h6>
+            <h6 class="text-muted card-subtitle mb-2">{{count}} meetings scheduled this week</h6>
         </div>
     </div>
     <div class="table-responsive" style="background: #f5f1f1;">
@@ -38,6 +38,15 @@
                     <th>Group</th>
                     <th>Operations</th>
                 </tr>
+                {% for meeting in meetings %}
+                <tr>
+                    <td>meeting.subject</td>
+                    <td>meeting.venue</td>
+                    <td>meeting.organiser</td>
+                    <td>meeting.group</td>
+                    <td>Ops</td>
+                </tr>
+                {% endfor %}
             </thead>
             <tbody></tbody>
         </table>

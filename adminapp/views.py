@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .decorators import unAuthenticated_user, allowed_users
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import get_user_model
-from .models import Member, Task, Submission, StatusUpdate  
+from .models import Member, Task, Submission, StatusUpdate, Meeting
 from pages.models import Application
 from .announcer import Announcer
 from .status_update import *
@@ -104,7 +104,12 @@ def groups(request):
     return render(request, 'adminapp/admin-groups.html',{'displayGroups':groups, 'counts':counts})
 
 def meetings(request):
-    return render(request, 'adminapp/admin-meetings.html')
+    meetingss = Meeting.objects.all()
+    count = 0
+    for m in meetingss:
+        if m.status == 'Pending':
+            count += 1
+    return render(request, 'adminapp/admin-meetings.html', {'meetings':meetingss, 'count':count})
 
 def delete(request, member_id):
     Member.objects.filter(id=member_id).delete()
