@@ -103,6 +103,9 @@ def groups(request):
     counts = Group.objects.count
     return render(request, 'adminapp/admin-groups.html',{'displayGroups':groups, 'counts':counts})
 
+def meetings(request):
+    return render(request, 'adminapp/admin-meetings.html')
+
 def delete(request, member_id):
     Member.objects.filter(id=member_id).delete()
     return redirect('members')

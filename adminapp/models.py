@@ -106,3 +106,41 @@ class StatusUpdate(models.Model):
     
     def __str__(self):
         return str(self.date)+"-"+self.username
+
+class Meetings(models.Model):
+
+    members = Member.objects.all()
+
+    auth_names = []
+
+    for m in members:
+        auth_names.append((m.fullname,m.fullname))
+        
+    auth_names = tuple(auth_names)
+
+    query_set = Group.objects.all()
+
+    group_names = []
+
+    for g in query_set:
+        group_names.append((g.name,g.name))
+        
+    group_names = tuple(group_names)
+
+    status_choices = (
+        ('Pending','Pending'),
+        ('Expired','Expired'),
+        ('Cancelled','Cancelled')
+    )
+
+
+    subject = models.CharField(max_length=500, null=True)
+    venue = models.DateTimeField(max_length=200, null=True)
+    organiser = models.CharField(max_length=200, null=True, choices=auth_names)
+    group = models.CharField(max_length=200, null=True, choices=group_names)
+    meeting_link = models.CharField(max_length=500, null=True)
+    status = models.CharField(max_length=200, null=True, choices=status_choices)
+
+    def __str__(self):
+        return self.subject
+    
