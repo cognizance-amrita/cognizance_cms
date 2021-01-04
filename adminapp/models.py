@@ -24,11 +24,10 @@ class Member(models.Model):
 
 class Streak(models.Model):
 
-    username = models.OneToOneField(Member, max_length=200, null=True, on_delete=models.SET_NULL)
+    username = models.OneToOneField(Member, max_length=200, null=True, on_delete=models.CASCADE)
     streak = models.IntegerField(null=True)
 
-    def __str__(self):
-        return self.username
+
 
 class Achievement(models.Model):
 
