@@ -20,11 +20,20 @@ class Member(models.Model):
     profile_pic = models.ImageField(null=True, blank=True, upload_to="Profile_Pics/")
 
     def __str__(self):
-        return self.fullname
+        return self.username
 
 class Streak(models.Model):
+    '''
+    members = Member.objects.all()
 
-    username = models.OneToOneField(Member, max_length=200, null=True, on_delete=models.CASCADE)
+    auth_names = []
+
+    for m in members:
+        auth_names.append((m.fullname,m.fullname))
+        
+    auth_names = tuple(auth_names)
+    '''
+    username = models.OneToOneField(Member, on_delete=models.CASCADE)
     streak = models.IntegerField(null=True)
 
 
