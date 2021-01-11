@@ -149,7 +149,8 @@ def add_members(request):
         github_username = github_handle,
         discord_handle = discord_handle,
         profile_pic = image,
-        role = role
+        role = role,
+        streak = 0
         )
         member.save()
         mygrp = Group.objects.get(name=role)
