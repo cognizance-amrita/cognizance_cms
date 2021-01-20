@@ -42,7 +42,7 @@ class Achievement(models.Model):
     title = models.CharField(max_length=200, null=True)
     content = models.CharField(max_length=1000, null=True)
     achievers = models.CharField(max_length=500, null=True)
-    image = models.ImageField(null=True,upload_to="Achievements/")
+    image = models.ImageField(null=True)
     date = models.DateField(null=True)
     post_date = models.DateTimeField(auto_now_add=True, null=True)
 
