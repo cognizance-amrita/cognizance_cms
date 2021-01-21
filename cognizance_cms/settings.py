@@ -93,8 +93,12 @@ WSGI_APPLICATION = 'cognizance_cms.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dcg2obokmo8u6c',
+        'USER' : 'yjocvclpsfqwtu',	
+        'PASSWORD': '34d904116273a98aa46e5637ea0c9c8ffe30b9dd11bd182527b32d832dddf21c',	
+        'HOST': 'ec2-35-168-77-215.compute-1.amazonaws.com',	
+        'PORT': '5432'
     }
 }
 
