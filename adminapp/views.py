@@ -21,8 +21,13 @@ from datetime import timedelta
 @allowed_users(allowed_roles=['administrator'])
 def dashboard(request):
     dates = StatusUpdate.objects.order_by('date').values('date').distinct()
-    s_date =  dates[len(dates)-1]['date']
-    return render(request, 'adminapp/admin-dashboard.html',{'s_date':s_date})
+    if len(dates)!=0:
+    	sdate =  dates[len(dates)-1]['date']
+    else:
+    	today = date.today()
+    	sdate = today - timedelta(days = 1) 
+    	sdate = sdate.strftime("%Y-%m-%d")
+    return render(request, 'adminapp/admin-dashboard.html',{'sdate':sdate})
 
 def announcements(request):
 
@@ -179,8 +184,11 @@ def status_updates(request,sdate):
     	    sub_users.append(mem)
     today = date.today()
     yesterday = today - timedelta(days = 1) 
-    latest_date =  listdictdates[len(dates)-1]['date'].strftime("%Y-%m-%d")
-    start_dt = date(2020,12,1)
+    if len(listdictdates)!=0:
+    	latest_date =  listdictdates[len(dates)-1]['date'].strftime("%Y-%m-%d")
+    else:
+    	latest_date = yesterday.strftime("%Y-%m-%d")
+    start_dt = date(2021,1,1)
     alldates = []
     for dt in Daterange(start_dt, yesterday):
         alldates.append(dt.strftime("%Y-%m-%d"))
