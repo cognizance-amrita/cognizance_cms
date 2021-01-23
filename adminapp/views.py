@@ -182,7 +182,18 @@ def status_updates(request,sdate):
     dates=[] 
     for i in range(0,len(listdictdates)):
     	dates.append(listdictdates[i]['date'].strftime("%Y-%m-%d"))
-    
+    if sdate not in dates:
+        mem_email_queryset = Member.objects.values('email')
+        mem_email=[]
+        for i in range(0,len(mem_email_queryset)):
+            mem_email.append(str(mem_email_queryset[i]['email']))
+        print(mem_email)
+        
+        # function call and saving to database
+        listdictdates = StatusUpdate.objects.order_by('date').values('date').distinct()
+        dates=[] 
+        for i in range(0,len(listdictdates)):
+            dates.append(listdictdates[i]['date'].strftime("%Y-%m-%d"))
     details = StatusUpdate.objects.all()	
     sub_users=[]
     for mem in details:
@@ -211,8 +222,7 @@ def status_updates(request,sdate):
     	sub_usr.append(sub_users[i].username)
     notsub= list(set(mem_usr)-set(sub_usr)) 
     return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
-    	'today':today.strftime("%Y-%m-%d"),'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,
-    	'alldates':alldates,'nostatus':nostatus,'notsubmitted':notsub,'members':members})
+    	'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,'notsubmitted':notsub,'members':members})
 
 
 def add_meeting(request):
