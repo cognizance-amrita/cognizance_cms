@@ -115,7 +115,8 @@ class StatusUpdate(models.Model):
     username = models.CharField(max_length=50, null=True)
     email = models.EmailField(max_length=254, null=True)
     date = models.DateField(null=True)
-    time = models.TimeField(null=True)
+    reportdatetime  = models.DateTimeField(null=True)
+    
     
     def __str__(self):
         return str(self.date)+"-"+self.username

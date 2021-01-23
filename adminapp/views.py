@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from .models import Member, Task, Submission, StatusUpdate, Meeting
 from pages.models import Application
 from .announcer import Announcer
-from .status_update import *
+
 from .daterange import Daterange
 from django.core.mail import send_mail
 from django.core import mail
@@ -14,20 +14,25 @@ from django.conf import settings
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 import datetime
+from datetime import datetime
 from datetime import date 
 from datetime import timedelta 
 # Create your views here.
 
 @allowed_users(allowed_roles=['administrator'])
 def dashboard(request):
-    dates = StatusUpdate.objects.order_by('date').values('date').distinct()
-    if len(dates)!=0:
-    	sdate =  dates[len(dates)-1]['date']
-    else:
-    	today = date.today()
-    	sdate = today - timedelta(days = 1) 
-    	sdate = sdate.strftime("%Y-%m-%d")
-    return render(request, 'adminapp/admin-dashboard.html',{'sdate':sdate})
+	dates = StatusUpdate.objects.order_by('date').values('date').distinct()
+	if len(dates)!=0:
+		sdate =  dates[len(dates)-1]['date']
+	else:
+		time = datetime.now().strftime("%H:%M:%S")
+		today = date.today()
+		sdate = today - timedelta(days = 1) 
+		if str(time)<'06:00:00':
+			sdate =  sdate - timedelta(days = 1)
+		sdate = sdate.strftime("%Y-%m-%d")
+		print(sdate)
+	return render(request, 'adminapp/admin-dashboard.html',{'sdate':sdate})
 
 def announcements(request):
 
@@ -177,6 +182,7 @@ def status_updates(request,sdate):
     dates=[] 
     for i in range(0,len(listdictdates)):
     	dates.append(listdictdates[i]['date'].strftime("%Y-%m-%d"))
+    
     details = StatusUpdate.objects.all()	
     sub_users=[]
     for mem in details:
@@ -184,10 +190,10 @@ def status_updates(request,sdate):
     	    sub_users.append(mem)
     today = date.today()
     yesterday = today - timedelta(days = 1) 
-    if len(listdictdates)!=0:
-    	latest_date =  listdictdates[len(dates)-1]['date'].strftime("%Y-%m-%d")
-    else:
-    	latest_date = yesterday.strftime("%Y-%m-%d")
+    time = datetime.now().strftime("%H:%M:%S")
+    if str(time)<'06:00:00':
+    	yesterday =  yesterday - timedelta(days = 1)
+    latest_date = yesterday.strftime("%Y-%m-%d")
     start_dt = date(2021,1,1)
     alldates = []
     for dt in Daterange(start_dt, yesterday):

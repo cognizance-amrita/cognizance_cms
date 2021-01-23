@@ -6,8 +6,8 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 import datetime
 import psycopg2
-
-
+from datetime import date 
+from datetime import timedelta 
 
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
 
@@ -57,3 +57,27 @@ def get_update():
                  break            
          values.append((str(timestamp), mailname, content))
     return values
+    
+def filter_update(sdate,mem_mail):
+    data = get_update()
+    d = sdate + timedelta(days = 1) 
+    e = '18:00:00'
+    f = '06:00:00'
+    res=[]
+    for i in range(len(data)):
+    	a,b = data[i][0].split()
+    	l = data[i][1].split()
+    	mail = l[-1]
+    	mail = str(mail[1:-1])
+    	if mail in mem_mail: 
+    	    if a == str(sdate):
+    	        if b > e :
+    	    	    res.append((data[i][0],mail))
+    	    elif a == str(d):
+    	        if b < f :
+    	            res.append((data[i][0],mail))
+    return res
+        
+mem_mail = ['info@twitter.com', 'bot@notifications.heroku.com', 'bot@notifications.heroku.com']
+print(filter_update(date(2021,1,10),mem_mail))
+
