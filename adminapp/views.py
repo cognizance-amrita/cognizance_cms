@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from .models import Member, Task, Submission, StatusUpdate, Meeting
 from pages.models import Application
 from .announcer import Announcer
-from .status_update import *
+#from .status_update import *
 from .daterange import Daterange
 from django.core.mail import send_mail
 from django.core import mail
@@ -188,6 +188,7 @@ def status_updates(request,sdate):
         mem_email=[]
         for i in range(0,len(mem_email_queryset)):
             mem_email.append(str(mem_email_queryset[i]['email']))
+        '''
         mem_mail = ['info@twitter.com', 'bot@notifications.heroku.com', 'bot@notifications.heroku.com']
         data = filter_update(date(2021,1,10),mem_mail)
         # data = filter_update(sdate,mem_email)
@@ -196,7 +197,7 @@ def status_updates(request,sdate):
             #report = StatusUpdate(fullname = mem_detail.fullname, username= mem_detail.username, email = data[i][1], date=sdate, reportdatetime=data[i][0])
             report = StatusUpdate(fullname = "Helo", username= "Hi", email = data[i][1], date=sdate, reportdatetime=data[i][0])
             report.save()
-        
+        '''
         listdictdates = StatusUpdate.objects.order_by('date').values('date').distinct()
         dates=[] 
         for i in range(0,len(listdictdates)):
