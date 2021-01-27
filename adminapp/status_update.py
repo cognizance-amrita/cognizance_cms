@@ -78,6 +78,5 @@ def filter_update(sdate,mem_mail):
     	            res.append((data[i][0],mail))
     return res
         
-mem_mail = ['info@twitter.com', 'bot@notifications.heroku.com', 'bot@notifications.heroku.com']
-print(filter_update(date(2021,1,10),mem_mail))
+
 
