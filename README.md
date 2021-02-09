@@ -25,7 +25,7 @@ as to avoid conflicts with other projects.
     ```   
 3. Install the project dependencies
     ```
-        $ pip install django
+        $ pip install -r requirements.txt
     ```
 
 You have now successfully set up the project on your environment. 
