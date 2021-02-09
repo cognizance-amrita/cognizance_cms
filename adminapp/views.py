@@ -124,6 +124,8 @@ def delete(request, member_id):
     Member.objects.filter(id=member_id).delete()
     return redirect('members')
 
+def edit_profile(request):
+    return reder(request, 'adminapp/edit-profile.html')
 
 def add_group(request):
     if request.method == 'POST':

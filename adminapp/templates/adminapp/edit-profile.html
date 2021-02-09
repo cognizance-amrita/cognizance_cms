@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="text-align: center;height: 100%;min-height: 100%;">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Cognizance</title>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}t">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'css/Login-Form-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Navigation-Clean.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Registration-Form-with-Photo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Simple-Slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/smoothproducts.css' %}">
+</head>
+
+<body style="background: url({% static 'img/tech/619899.jpg' %});text-align: center;height: 100%;min-height: 100%;padding: 0px;">
+    <nav class="navbar navbar-light navbar-expand-md" style="background: #f9f7f7;">
+        <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: 600;">Edit Profile</a><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
+    </nav>
+    <div class="card" style="width: 600px;text-align: center;margin-left: 25%;margin-right: 25%;margin-top: 5%;margin-bottom: 50px;">
+        <div class="card-body">
+          <form>
+          {% csrf_token %}
+            <img style="width: 150px;height: 150px;border-radius: 100px;border-style: solid;margin-top: 25px;" name="profile_image">
+            <div class="col" style="margin-top: 30px;padding: 5px;"><input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56) ;" placeholder="Fullname" name="fullname">
+            <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Username" name="username">
+            <input type="password" style="width: 400px;padding: 10px;margin-top: 20px;border: 1px solid rgb(254,142,56);border-radius: 7px;" placeholder="Password" name="password">
+            <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Phone" inputmode="numeric" name="phone">
+            <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="GitHub username" name="github_username">
+            <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Discord handle" name="discord_handle">
+            </div>
+            <button class="btn btn-primary" type="submit" style="width: 400px;margin-top: 30px;height: 50px;margin-bottom: 20px;">SAVE CHANGES</button>
+          </form>
+        </div>
+    </div>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'js/smoothproducts.min.js' %}"></script>
+    <script src="{% static 'js/theme.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'js/Simple-Slider.js' %}"></script>
+</body>
+
+</html>
