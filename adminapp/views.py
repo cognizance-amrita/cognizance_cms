@@ -31,7 +31,6 @@ def dashboard(request):
 		if str(time)<'06:00:00':
 			sdate =  sdate - timedelta(days = 1)
 		sdate = sdate.strftime("%Y-%m-%d")
-		print(sdate)
 	return render(request, 'adminapp/admin-dashboard.html',{'sdate':sdate})
 
 def announcements(request):
@@ -207,7 +206,7 @@ def status_updates(request,sdate):
     	if (mem.date.strftime("%Y-%m-%d")==sdate):
     	    sub_users.append(mem)
     today = date.today()
-    yesterday = today - timedelta(days = 1) 
+    yesterday = today
     time = datetime.now().strftime("%H:%M:%S")
     if str(time)<'06:00:00':
     	yesterday =  yesterday - timedelta(days = 1)
