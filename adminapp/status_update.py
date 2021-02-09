@@ -22,7 +22,7 @@ def get_service():
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
-            flow = InstalledAppFlow.from_client_secrets_file('/home/techienk/cognizance_cms/adminapp/credentials.json', SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file('https://github.com/cognizance-amrita/cognizance_cms/blob/master/adminapp/credentials.json', SCOPES)
             creds = flow.run_local_server(port=0)
         
         with open('token.pickle', 'wb') as token:
