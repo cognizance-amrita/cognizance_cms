@@ -229,7 +229,7 @@ def status_updates(request,sdate):
     	sub_usr.append(sub_users[i].username)
     notsub= list(set(mem_usr)-set(sub_usr)) 
     return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
-    	'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,'notsubmitted':notsub,'members':members,'today':today})
+    	'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,'notsubmitted':notsub,'members':members})
 
 
 def add_meeting(request):
