@@ -206,7 +206,7 @@ def status_updates(request,sdate):
     	if (mem.date.strftime("%Y-%m-%d")==sdate):
     	    sub_users.append(mem)
     today = date.today()
-    yesterday = today
+    yesterday = today - timedelta(days = 1) 
     time = datetime.now().strftime("%H:%M:%S")
     if str(time)<'06:00:00':
     	yesterday =  yesterday - timedelta(days = 1)
@@ -227,7 +227,7 @@ def status_updates(request,sdate):
     	sub_usr.append(sub_users[i].username)
     notsub= list(set(mem_usr)-set(sub_usr)) 
     return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
-    	'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,'notsubmitted':notsub,'members':members})
+    	'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,'notsubmitted':notsub,'members':members,'today':today})
 
 
 def add_meeting(request):
