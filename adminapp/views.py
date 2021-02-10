@@ -17,7 +17,7 @@ import datetime
 from datetime import datetime
 from datetime import date 
 from datetime import timedelta 
-import huey
+from huey.contrib.djhuey import periodic_task
 from huey import crontab
 # Create your views here.
 
@@ -35,7 +35,7 @@ def dashboard(request):
 		sdate = sdate.strftime("%Y-%m-%d")
 	return render(request, 'adminapp/admin-dashboard.html',{'sdate':sdate})
 
-@huey.periodic_task(crontab(minute='*/2'))
+@periodic_task(crontab(minute='*/2'))
 def send_status_updates():
     template = render_to_string('adminapp/status-update-template.html')
     subject = f'Cognizance Status Update [{date.today()}]'
