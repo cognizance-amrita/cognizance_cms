@@ -20,7 +20,7 @@ as to avoid conflicts with other projects.
     ```
 2. Create a python 3 virtualenv, and activate the environment.
     ```bash
-        $ virtualenv -p python3 .
+        $ virtualenv -p python3
         $ source bin/activate
     ```   
 3. Install the project dependencies
