@@ -17,8 +17,7 @@ import datetime
 from datetime import datetime
 from datetime import date 
 from datetime import timedelta 
-from huey.contrib.djhuey import periodic_task
-from huey import crontab
+from .tasks import *
 # Create your views here.
 
 @allowed_users(allowed_roles=['administrator'])

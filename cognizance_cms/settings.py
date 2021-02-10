@@ -13,18 +13,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import dj_database_url
 import django_heroku
-from environs import Env
 import logging
-
-env = Env()
-env.read_env()
-
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-DEBUG = env.bool('DEBUG', default=True)
 
 STATIC_URL = '/static/'
 STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
@@ -59,7 +53,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'adminapp',
     'pages',
-    'huey.contrib.djhuey',
     'membersapp'
 ]
 
@@ -131,26 +124,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-taskQueueRedisHost = env.str('TASK_QUEUE_REDIS_HOST', default='')
-HUEY = {
-    'huey_class': 'huey.PriorityRedisHuey',
-    'name': 'platform-task-queue',
-    'connection': {
-        'host': taskQueueRedisHost,
-        'port': 6379
-    },
-    'consumer': {
-        'blocking': True,  # Use blocking list pop instead of polling Redis.
-        'loglevel': logging.DEBUG,
-        'workers': 4,
-        'scheduler_interval': 1,
-        'simple_log': True,
-    }
-}
-
-if DEBUG:
-    HUEY['immediate_use_memory'] = False
-    HUEY['immediate'] = False
 
 
 
