@@ -35,18 +35,7 @@ def dashboard(request):
 		sdate = sdate.strftime("%Y-%m-%d")
 	return render(request, 'adminapp/admin-dashboard.html',{'sdate':sdate})
 
-@periodic_task(crontab(minute='*/2'))
-def send_status_updates():
-    template = render_to_string('adminapp/status-update-template.html')
-    subject = f'Cognizance Status Update [{date.today()}]'
-    plain_msg = strip_tags(template)
-    mail.send_mail(
-        subject,
-        plain_msg,
-        settings.EMAIL_HOST_USER,
-        settings.EMAIL_GROUP,
-        html_message=template,
-        )
+
 
 def announcements(request):
 
