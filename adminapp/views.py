@@ -17,7 +17,7 @@ import datetime
 from datetime import datetime
 from datetime import date 
 from datetime import timedelta 
-from .tasks import *
+#from .tasks import *
 # Create your views here.
 
 @allowed_users(allowed_roles=['administrator'])

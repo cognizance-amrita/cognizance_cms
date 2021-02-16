@@ -21,7 +21,7 @@ def send_status_updates():
     print('Sent periodic status update')
 
 def send_email_at(send_time):
-    time.sleep(send_time.timestamp() - time.time())
+    time.sleep(abs(send_time.timestamp() - time.time()))
     send_status_updates()
     print('email sent')
 
