@@ -50,7 +50,7 @@ def applications(request):
 
 def member(request, member_name):
     
-    member = Member.objects.get(username=member_name)
+    member = Member.objects.filter(username=member_name)
 
     return render(request,'pages/member.html',{'user':member})
 

@@ -17,13 +17,13 @@ import datetime
 from datetime import datetime
 from datetime import date 
 from datetime import timedelta 
-#from .tasks import *
-# Create your views here.
+from .tasks import *
 
 @allowed_users(allowed_roles=['administrator'])
 def dashboard(request):
 	dates = StatusUpdate.objects.order_by('date').values('date').distinct()
-	if len(dates)!=0:
+
+	if len(dates) != 0:
 		sdate =  dates[len(dates)-1]['date']
 	else:
 		time = datetime.now().strftime("%H:%M:%S")
