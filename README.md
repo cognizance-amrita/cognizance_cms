@@ -17,13 +17,21 @@ as to avoid conflicts with other projects.
     ```
         $ git clone https://github.com/cognizance2020/cognizance_cms.git
         $ cd cognizance_cms
-    ```
-2. Create a python 3 virtualenv, and activate the environment.
+    ```  
+2a. Docker image (First option)  
+  
+  ```  
+    $ docker-compose build  
+    $ docker-compose up  
+  ```  
+2b. Create a python 3 virtualenv, and activate the environment. (Second option)  
+
     ```bash
         $ virtualenv -p python3
         $ source bin/activate
     ```   
-3. Install the project dependencies
+ Install the project dependencies  
+ 
     ```
         $ pip install -r requirements.txt
     ```
