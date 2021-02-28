@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'adminapp',
     'pages',
-    'membersapp'
+    'membersapp',
+    'django_celery_beat'
 ]
 
 MIDDLEWARE = [
