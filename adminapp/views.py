@@ -76,6 +76,17 @@ def reviewing(request, application_id):
         if application.status == 'Accepted':
             template = render_to_string('adminapp/accepted-mail-template.html',{'name':application.fullname})
             subject = 'Congratulations, you\'re in! 🎉'
+            mem = Member(
+                fullname= application.fullname,
+                username=application.fullname.replace(' ', ''),
+                phone=application.phone,
+                email=application.email,
+                password=application.password,
+                role='Member',
+                discord_handle=application.discord_handle,
+                github_username=application.github_username
+            )
+            mem.save()
         if application.status == 'Rejected':
             template = render_to_string('adminapp/rejected-mail-template.html',{'name':application.fullname})
             subject = 'Better luck next time 😔'
