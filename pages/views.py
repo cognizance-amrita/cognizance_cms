@@ -26,7 +26,11 @@ def apply(request):
         ac_year = request.POST.get('ac_year')
         status = 'Under review'
         experience = request.POST.get('experience')
-
+        tasksrepo = request.POST.get('taskrepo')
+        password = request.POST.get('password')
+        discord_handle = request.POST.get('discord_handle')
+        github_handle = request.POST.get('github_handle')
+        phone = request.POST.get('phone')
         ap = Application(
             fullname=fullname,
             email=email,
@@ -36,7 +40,12 @@ def apply(request):
             writeup=writeup,
             ac_year=ac_year,
             status=status,
-            experience=experience
+            experience=experience,
+            tasksrepo=tasksrepo,
+            discord_handle=discord_handle,
+            github_handle=github_handle,
+            phone=phone,
+            password=password
         )
         ap.save()
         return redirect(home)
