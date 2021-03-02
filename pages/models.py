@@ -61,7 +61,7 @@ class Application(models.Model):
     reviewer = models.CharField(max_length=200, null=True, choices=members)
     tasksrepo = models.CharField(max_length=200, null=True)
     discord_handle = models.CharField(max_length=200, null=True)
-    github_handle = models.CharField(max_length=200, null=True)
+    github_username = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=200, null=True)
     password = models.CharField(max_length=200, null=True)
 
