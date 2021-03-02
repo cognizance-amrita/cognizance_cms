@@ -29,7 +29,7 @@ def apply(request):
         tasksrepo = request.POST.get('taskrepo')
         password = request.POST.get('password')
         discord_handle = request.POST.get('discord_handle')
-        github_handle = request.POST.get('github_handle')
+        github_username = request.POST.get('github_username')
         phone = request.POST.get('phone')
         ap = Application(
             fullname=fullname,
@@ -43,7 +43,7 @@ def apply(request):
             experience=experience,
             tasksrepo=tasksrepo,
             discord_handle=discord_handle,
-            github_handle=github_handle,
+            github_username=github_username,
             phone=phone,
             password=password
         )
