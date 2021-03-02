@@ -88,7 +88,7 @@ def reviewing(request, application_id):
                 github_username=application.github_username
             )
             mem.save()
-            add_role(discord_handle, 'M3MB3R5')
+            add_role(application.discord_handle, 'M3MB3R5')
 
         if application.status == 'Rejected':
             template = render_to_string('adminapp/rejected-mail-template.html',{'name':application.fullname})
