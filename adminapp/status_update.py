@@ -58,24 +58,25 @@ def get_update():
          values.append((str(timestamp), mailname, content))
     return values
     
-def filter_update(sdate,mem_mail):
+def filter_update(date_arr,mem_mail):
     data = get_update()
-    d = sdate + timedelta(days = 1) 
-    e = '18:00:00'
-    f = '06:00:00'
-    res=[]
-    for i in range(len(data)):
-    	a,b = data[i][0].split()
-    	l = data[i][1].split()
-    	mail = l[-1]
-    	mail = str(mail[1:-1])
-    	if mail in mem_mail: 
-    	    if a == str(sdate):
-    	        if b > e :
-    	    	    res.append((data[i][0],mail))
-    	    elif a == str(d):
-    	        if b < f :
-    	            res.append((data[i][0],mail))
+    res = []
+    for dat in date_arr:
+        d = dat + timedelta(days = 1) 
+        e = '18:00:00'
+        f = '06:00:00'
+        for i in range(len(data)):
+	        a,b = data[i][0].split()
+	        l = data[i][1].split()
+	        mail = l[-1]
+	        mail = str(mail[1:-1])
+	        if mail in mem_mail: 
+	            if a == str(dat):
+	                if b > e :
+	            	    res.append((data[i][0],mail,dat))
+	            elif a == str(d):
+	                if b < f :
+	                    res.append((data[i][0],mail,dat))
     return res
         
 

@@ -201,14 +201,19 @@ def status_updates(request,sdate):
     if sdate not in dates:
         mem_email_queryset = Member.objects.values('email')
         mem_email=[]
+        from_date = date(int(dates[-1][:4]),int(dates[-1][5:7]),int(dates[-1][8:10]))
+        to_date = date(int(sdate[:4]),int(sdate[5:7]),int(sdate[8:10]))
+        date_arr = [from_date + timedelta(days=x) for x in range((to_date - from_date).days + 1)]
+        date_arr = date_arr[1:]
         for i in range(0,len(mem_email_queryset)):
             mem_email.append(str(mem_email_queryset[i]['email']))
         # mem_mail = ['info@twitter.com', 'bot@notifications.heroku.com', 'bot@notifications.heroku.com']
         # data = filter_update(date(2021,1,10),mem_mail)
-        data = filter_update(date(int(sdate[:4]),int(sdate[5:7]),int(sdate[8:10])),mem_email)
+        data = filter_update(date_arr,mem_email)
+        print(data)
         for i in range(len(data)):
             mem_detail = Member.objects.get(email=data[i][1])
-            report = StatusUpdate(fullname = mem_detail.fullname, username= mem_detail.username, email = data[i][1], date=sdate, reportdatetime=data[i][0])
+            report = StatusUpdate(fullname = mem_detail.fullname, username= mem_detail.username, email = data[i][1], date=data[i][2], reportdatetime=data[i][0])
             # report = StatusUpdate(fullname = "Helo", username= "Hi", email = data[i][1], date=sdate, reportdatetime=data[i][0])
             report.save()
         
