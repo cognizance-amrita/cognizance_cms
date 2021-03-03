@@ -18,7 +18,7 @@ class Member(models.Model):
     github_username = models.CharField(max_length=50, null=True)
     discord_handle = models.CharField(max_length=50, null=True)
     profile_pic = models.ImageField(null=True, blank=True, upload_to='Profile Pictures')
-    streak = models.IntegerField(null=True)
+    streak = models.IntegerField(null=True,default=0)
 
     def __str__(self):
         return self.username

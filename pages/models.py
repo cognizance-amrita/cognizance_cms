@@ -59,7 +59,11 @@ class Application(models.Model):
     status = models.CharField(max_length=50, null=True, choices=statuses)
     experience = models.TextField(max_length=500, null=True)
     reviewer = models.CharField(max_length=200, null=True, choices=members)
-
+    tasksrepo = models.CharField(max_length=200, null=True)
+    discord_handle = models.CharField(max_length=200, null=True)
+    github_username = models.CharField(max_length=200, null=True)
+    phone = models.CharField(max_length=200, null=True)
+    password = models.CharField(max_length=200, null=True)
 
     def __str__(self):
         return self.fullname

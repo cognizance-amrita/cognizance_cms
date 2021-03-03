@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Cognizance</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}" />
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
@@ -29,12 +30,12 @@
         <div class="card-body" style="width: 100%;padding: 0px;">
             <form method="post" style="width: 100%;max-width: 100%;">
             {% csrf_token %}
-                <h2 class="sr-only">Login Form</h2>
+                <h2 class="sr-only">Application form</h2>
                 <div class="form-group" style="padding: 10px;border-radius: 10px;border: 1px solid var(--orange) ;">
                     <p>Fullname</p><input class="form-control" type="text" placeholder="Your good name here" name="fullname" required>
                 </div>
                 <div class="form-group" style="padding: 10px;border-radius: 10px;border: 1px solid var(--orange) ;">
-                    <p>Email address</p><input class="form-control" type="email" placeholder="We can get you notified about your application status" name="email" required>
+                    <p>Email address</p><input class="form-control" type="email" placeholder="We can notify you about your application status" name="email" required>
                 </div>
                 <div class="form-group" style="padding: 10px;border-radius: 10px;margin-top: 10px;border: 1px solid var(--orange) ;">
                     <p>Department</p><select class="form-control" style="margin-top: 10px;" name="department" required>
@@ -47,6 +48,22 @@
                             <option value="MECH">MECH</option>
                         </optgroup>
                     </select>
+                </div>
+                <div class="form-group" style="border-radius: 10px;padding: 10px;border: 1px solid var(--orange) ;">
+                    <p>Phone number</p>
+                    <input class="form-control" name="phone" type="text" placeholder="Phone" inputmode="numeric" required>
+                </div>
+                <div class="form-group" style="border-radius: 10px;padding: 10px;border: 1px solid var(--orange) ;">
+                    <p>GitHub Username</p>
+                    <input class="form-control" name="github_handle" type="text" placeholder="GitHub username" required>
+                </div>
+                <div class="form-group" style="border-radius: 10px;padding: 10px;border: 1px solid var(--orange) ;">
+                    <p>Discord Handle (with discriminator tag)</p>
+                    <input class="form-control" name="discord_handle" type="text" placeholder="Discord handle (Eg. abc#1234)">
+                </div>
+                <div class="form-group" style="border-radius: 10px;padding: 10px;border: 1px solid var(--orange) ;">
+                    <p>Preferred password</p>
+                    <input class="form-control" name="password" type="password" name="password" placeholder="Password" required>
                 </div>
                 <div class="form-group" style="border-radius: 10px;padding: 10px;border: 1px solid var(--orange) ;">
                     <p>Domain of Interest</p><select class="form-control" style="margin-top: 10px;" name="domain" required>
@@ -78,6 +95,9 @@
                 </div>
                 <div class="form-group" style="padding: 10px;border-radius: 10px;border: 1px solid var(--orange) ;">
                     <p>Experience (if any)</p><textarea class="form-control" name="experience"></textarea>
+                </div>
+                <div class="form-group" style="padding: 10px;border-radius: 10px;border: 1px solid var(--orange) ;">
+                    <p>Preliminary task</p><input class="form-control" type="text" placeholder="Provide the link to the preliminary tasks repo here" name="taskrepo" required>
                 </div>
                 <div class="form-group" style="border-color: var(--orange);"><button class="btn btn-primary btn-block" type="submit" style="background: rgb(239,90,25);border-color: var(--orange);height: 42px;margin-top: 30px;">APPLY NOW</button></div>
             </form>
