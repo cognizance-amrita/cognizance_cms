@@ -23,17 +23,18 @@
     <nav class="navbar navbar-light navbar-expand-md" style="background: #f9f7f7;">
         <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: 600;">Edit Profile</a></div>
     </nav>
-    <div class="card" style="width: 600px;text-align: center;margin-left: 25%;margin-right: 25%;margin-top: 5%;margin-bottom: 50px;">
+    <div class="card"  style="width: 600px;text-align: center;margin-left: 25%;margin-right: 25%;margin-top: 5%;margin-bottom: 50px;">
         <div class="card-body">
-          <form>
+          <form method="post">
           {% csrf_token %}
-            <img style="width: 150px;height: 150px;border-radius: 100px;border-style: solid;margin-top: 25px;" name="profile_image">
-            <div class="col" style="margin-top: 30px;padding: 5px;"><input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56) ;" placeholder="Fullname" name="fullname">
-            <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Username" name="username">
-            <input type="password" style="width: 400px;padding: 10px;margin-top: 20px;border: 1px solid rgb(254,142,56);border-radius: 7px;" placeholder="Password" name="password">
-            <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Phone" inputmode="numeric" name="phone">
-            <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="GitHub username" name="github_username">
-            <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Discord handle" name="discord_handle">
+                <img style="width: 150px;height: 150px;border-radius: 100px;border-style: solid;margin-top: 25px;" name="profile_image" value="{{ image }}">
+                <div class="col" style="margin-top: 30px;padding: 5px;">
+                <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56) ;" placeholder="Fullname" name="FullName" value="{{ FullName }}">
+                <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Username" name="UserName" value="{{ UserName }}">
+                <input type="password" style="width: 400px;padding: 10px;margin-top: 20px;border: 1px solid rgb(254,142,56);border-radius: 7px;" placeholder="Password" name="Password" >
+                <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Phone" inputmode="numeric" name="Phone" value="{{ Phone }}">
+                <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="GitHub username" name="GitHub" value=" {{ GitHub }}">
+                <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Discord handle" name="Discord" value="{{ Discord }}">
             </div>
             <button class="btn btn-primary" type="submit" style="width: 400px;margin-top: 30px;height: 50px;margin-bottom: 20px;">SAVE CHANGES</button>
           </form>
