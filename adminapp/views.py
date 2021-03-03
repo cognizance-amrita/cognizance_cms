@@ -152,6 +152,7 @@ def edit_profile(request):
     c_github_username = cusr.github_username
     c_discord_handle = cusr.discord_handle
     c_image = cusr.profile_pic
+    c_id = cusr.id
 
     if request.method == 'POST':
         # gets the data from the front-end
@@ -173,13 +174,10 @@ def edit_profile(request):
         discord_handle = discord_handle,
             # profile_pic = image
         )
-        member.save()
-        result = User.objects.create(password=password, username=username)
-        mygrp.user_set.add(result)
-        u = User.objects.get(username=n_username)
-        u.set_password(n_password)
-        u.save()
-        print(result)
+        Member.objects.filter(id=c_id).update(fullname=fullname,username=username,password=password,phone=phone,discord_handle=discord_handle,github_username=github_handle)       
+
+
+
         return redirect('members')
     
     else: 
