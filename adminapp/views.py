@@ -144,42 +144,25 @@ def delete(request, member_id):
 def edit_profile(request):
 
     # This gets the original data from the back-end
-
     cusr = Member.objects.get(username=request.user.username)
     c_username = cusr.username
     c_fullname = cusr.fullname
     c_phone = cusr.phone
     c_github_username = cusr.github_username
     c_discord_handle = cusr.discord_handle
-    c_image = cusr.profile_pic
+    c_image = cusr.profile_pic  
     c_id = cusr.id
 
     if request.method == 'POST':
         # gets the data from the front-end
-
         fullname = request.POST.get('FullName')
         username = request.POST.get('UserName')
         phone = request.POST.get('Phone')
         password = request.POST.get('Password')
         github_handle = request.POST.get('GitHub')
         discord_handle = request.POST.get('Discord')
-            # image = request.POST.get('profile_pic_field')
-    
-        member = Member(
-        fullname = fullname,
-        username = username,
-        phone = phone,
-        password = password,
-        github_username = github_handle,
-        discord_handle = discord_handle,
-            # profile_pic = image
-        )
         Member.objects.filter(id=c_id).update(fullname=fullname,username=username,password=password,phone=phone,discord_handle=discord_handle,github_username=github_handle)       
-
-
-
         return redirect('members')
-    
     else: 
         return render(request, 'adminapp/edit-profile.html',{'UserName': c_username, 'FullName':c_fullname, 'Phone':c_phone, 'GitHub':c_github_username, 'Discord':c_discord_handle, 'PFP':c_image})
         

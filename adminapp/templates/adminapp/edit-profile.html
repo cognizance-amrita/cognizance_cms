@@ -27,7 +27,7 @@
         <div class="card-body">
           <form method="post">
           {% csrf_token %}
-                <img style="width: 150px;height: 150px;border-radius: 100px;border-style: solid;margin-top: 25px;" name="profile_image" value="{{ image }}">
+                <img method="post" enctype="multipart/form-data" style="width: 150px;height: 150px;border-radius: 100px;border-style: solid;margin-top: 25px;" name="PFP" src="{{ PFP }}">
                 <div class="col" style="margin-top: 30px;padding: 5px;">
                 <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56) ;" placeholder="Fullname" name="FullName" value="{{ FullName }}">
                 <input type="text" style="padding: 10px;width: 400px;border-radius: 7px;border: 1px solid rgb(254,142,56);margin-top: 20px;" placeholder="Username" name="UserName" value="{{ UserName }}">
