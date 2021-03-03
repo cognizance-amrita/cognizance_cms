@@ -29,7 +29,7 @@ if str(time) == '15:22:00':
 
 def add_role(discord_handle, role):
     #member = guild.get_member_named(name=discord_handle)
-    member = discord.utils.get(discord.Guild.members, name=discord_handle)
+    member = discord.utils.get(discord.Member, name=discord_handle)
     the_role = discord.utils.get(guild.roles,name=role)
     #member.add_roles(discord.Role('790265904894050344'))
     member.add_roles(the_role)
