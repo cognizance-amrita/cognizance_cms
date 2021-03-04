@@ -142,7 +142,30 @@ def delete(request, member_id):
     return redirect('members')
 
 def edit_profile(request):
-    return render(request, 'adminapp/edit-profile.html')
+
+    # This gets the original data from the back-end
+    cusr = Member.objects.get(username=request.user.username)
+    c_username = cusr.username
+    c_fullname = cusr.fullname
+    c_phone = cusr.phone
+    c_github_username = cusr.github_username
+    c_discord_handle = cusr.discord_handle
+    c_image = cusr.profile_pic  
+    c_id = cusr.id
+
+    if request.method == 'POST':
+        # gets the data from the front-end
+        fullname = request.POST.get('FullName')
+        username = request.POST.get('UserName')
+        phone = request.POST.get('Phone')
+        password = request.POST.get('Password')
+        github_handle = request.POST.get('GitHub')
+        discord_handle = request.POST.get('Discord')
+        Member.objects.filter(id=c_id).update(fullname=fullname,username=username,password=password,phone=phone,discord_handle=discord_handle,github_username=github_handle)       
+        return redirect('members')
+    else: 
+        return render(request, 'adminapp/edit-profile.html',{'UserName': c_username, 'FullName':c_fullname, 'Phone':c_phone, 'GitHub':c_github_username, 'Discord':c_discord_handle, 'PFP':c_image})
+        
 
 def add_group(request):
     if request.method == 'POST':
@@ -189,8 +212,6 @@ def add_members(request):
         u = User.objects.get(username=username)
         u.set_password(password)
         u.save()
-
-        return redirect('members')
 
     return render(request, 'adminapp/add-members.html')
   

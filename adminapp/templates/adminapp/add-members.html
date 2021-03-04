@@ -26,21 +26,32 @@
             <form method="post" style="height: 50%;width: 40%;text-align: center;max-width: 40%;max-height: 50%;">
                 {% csrf_token %}
                 <h2 class="text-center"><strong>Add</strong> a member</h2>
-                <div class="form-group"><input class="form-control" name="fullname" type="text" placeholder="Fullname" style="margin-top: 30px;"></div>
-                <div class="form-group"><input class="form-control" name="username" type="text" placeholder="Username"></div>
-                <div class="form-group"><input class="form-control" name="phone" type="text" placeholder="Phone" inputmode="numeric"></div>
-                <div class="form-group"><input class="form-control" name="github_handle" type="text" placeholder="GitHub handle"></div>
-                <div class="form-group"><select class="form-control" name="role" placeholder="Role">
+                <div class="form-group">
+                    <input class="form-control" name="fullname" type="text" placeholder="Fullname" style="margin-top: 30px;"></div>
+                <div class="form-group">
+                    <input class="form-control" name="username" type="text" placeholder="Username"></div>
+                <div class="form-group">
+                    <input class="form-control" name="phone" type="text" placeholder="Phone" inputmode="numeric"></div>
+                <div class="form-group">
+                    <input class="form-control" name="github_handle" type="text" placeholder="GitHub handle"></div>
+                <div class="form-group">
+                    <select class="form-control" name="role" placeholder="Role">
                 <option value="member">Member</option>
                 <option value='administrator'>Administrator</option>
                 </select>
                 </div>
-                <div class="form-group"><input class="form-control" name="discord_handle" type="text" placeholder="Discord handle"></div>
-                <div class="form-group"><input class="form-control" name="email" type="email" name="email" placeholder="Email" inputmode="email"></div>
-                <div class="form-group"><input class="form-control" name="password" type="password" name="password" placeholder="Password"></div>
-                <div class="form-group"><input class="form-control" name="conf_password" type="password" name="password-repeat" placeholder="Password (repeat)"></div>
-                <div class="form-group"><input type="file" name="profile_pic_field"></div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" style="background: rgb(227,84,65);">REGISTER</button></div>
+                <div class="form-group">
+                    <input class="form-control" name="discord_handle" type="text" placeholder="Discord handle"></div>
+                <div class="form-group">
+                    <input class="form-control" name="email" type="email" name="email" placeholder="Email" inputmode="email"></div>
+                <div class="form-group">
+                    <input class="form-control" name="password" type="password" name="password" placeholder="Password"></div>
+                <div class="form-group">
+                    <input class="form-control" name="conf_password" type="password" name="password-repeat" placeholder="Password (repeat)"></div>
+                <div class="form-group">
+                    <input type="file" name="profile_pic_field"></div>
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit" style="background: rgb(227,84,65);">REGISTER</button></div>
             </form>
         </div>
         <!-- End: Form Container -->
