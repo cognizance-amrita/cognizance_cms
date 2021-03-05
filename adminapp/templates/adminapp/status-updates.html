@@ -71,6 +71,7 @@
                     <th>S.No</th>
                     <th>Full Name</th>
                     <th>Username</th>
+                    <th>Streak Count</th>
                 </tr>
             </thead>
             <tbody>
@@ -80,6 +81,7 @@
                     <td>{{forloop.counter}}</td>
                     <td>{{user.fullname}}</td>
                     <td>{{user.username}}</td>
+                    <td>{{user.streak}}</td>
                 </tr>
             {% endif %}   
             {% endfor %}

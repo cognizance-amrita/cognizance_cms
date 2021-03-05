@@ -236,12 +236,54 @@ def status_updates(request,sdate):
         # data = filter_update(date(2021,1,10),mem_mail)
         data = filter_update(date_arr,mem_email)
         print(data)
+        if len(data)!=0:
+            lates_date = data[0][2]
         for i in range(len(data)):
+            if lates_date != data[i][2]:
+                details = StatusUpdate.objects.all()	
+                sub_users=[]
+                for mem in details:
+                	if (mem.date.strftime("%Y-%m-%d")==lates_date):
+                	    sub_users.append(mem)
+                notsub = []
+                mem = Member.objects.values('username')
+                mem_usr=[]
+                for ik in range(0,len(mem)):
+                    mem_usr.append(mem[ik]['username'])
+                sub_usr=[]
+                for il in range(0,len(sub_users)):
+                	sub_usr.append(sub_users[il].username)
+                notsub= list(set(mem_usr)-set(sub_usr))
+                for st in range(len(notsub)):
+                    meme = Member.objects.get(username=notsub[st])
+                    meme.streak+=1
+                    meme.save()
+                lates_date = data[i][2]
             mem_detail = Member.objects.get(email=data[i][1])
             report = StatusUpdate(fullname = mem_detail.fullname, username= mem_detail.username, email = data[i][1], date=data[i][2], reportdatetime=data[i][0])
             # report = StatusUpdate(fullname = "Helo", username= "Hi", email = data[i][1], date=sdate, reportdatetime=data[i][0])
-            report.save()
-        
+            mem_detail.streak = 0
+            mem_detail.save()         
+            report.save()        
+        if len(data)!=0:        
+            details = StatusUpdate.objects.all()	
+            sub_users=[]
+            for mem in details:
+            	if (mem.date.strftime("%Y-%m-%d")==data[-1][2]):
+            	    sub_users.append(mem)
+            notsub = []
+            mem = Member.objects.values('username')
+            mem_usr=[]
+            for i in range(0,len(mem)):
+                mem_usr.append(mem[i]['username'])
+            sub_usr=[]
+            for i in range(0,len(sub_users)):
+            	sub_usr.append(sub_users[i].username)
+            notsub= list(set(mem_usr)-set(sub_usr))
+            for st in range(len(notsub)):
+                meme = Member.objects.get(username=notsub[st])
+                meme.streak+=1
+                meme.save()
         listdictdates = StatusUpdate.objects.order_by('date').values('date').distinct()
         dates=[] 
         for i in range(0,len(listdictdates)):
@@ -257,12 +299,6 @@ def status_updates(request,sdate):
     if str(time)<'06:00:00':
     	yesterday =  yesterday - timedelta(days = 1)
     latest_date = yesterday.strftime("%Y-%m-%d")
-    start_dt = date(2021,1,1)
-    alldates = []
-    for dt in Daterange(start_dt, yesterday):
-        alldates.append(dt.strftime("%Y-%m-%d"))
-    nostatus = list(set(alldates) - set(dates))
-    nostatus.sort()
     notsub = []
     mem = Member.objects.values('username')
     mem_usr=[]
