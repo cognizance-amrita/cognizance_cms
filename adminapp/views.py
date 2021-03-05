@@ -18,7 +18,7 @@ from datetime import datetime
 from datetime import date 
 from datetime import timedelta 
 from .tasks import *
-from .bot import add_role
+#from .bot import add_role
 
 @allowed_users(allowed_roles=['administrator'])
 def dashboard(request):
@@ -88,7 +88,8 @@ def reviewing(request, application_id):
                 github_username=application.github_username
             )
             mem.save()
-            add_role(application.discord_handle, 'M3MB3R5')
+            ann  = Announcer()
+            ann.add_role(username=application.discord_handle)
 
         if application.status == 'Rejected':
             template = render_to_string('adminapp/rejected-mail-template.html',{'name':application.fullname})
