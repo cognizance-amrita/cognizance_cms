@@ -1,14 +1,19 @@
+from discord import Webhook, RequestsWebhookAdapter
+import requests
 import discord
 from discord.ext import commands
     
 client = commands.Bot(command_prefix='jillu ')
 
-guild = client.get_guild('790264911254388776')
+class Bot:
+
+    webhook = Webhook.from_url('https://discord.com/api/webhooks/818330362509918238/EQjeQmYltevJAjho3jKFVUzwQvUZVbzIENDNcMbBRcu7VO4kdZYQkRXN3s-EI3zNDKuN'
+        , adapter= RequestsWebhookAdapter()
+        )
+    
+    def add_role(self, username, role):
+        msg = f'jillu admit <@!{username}> {role}'
+        self.webhook.send(msg)
 
 
-def add_role(discord_handle, role):
-    #member = guild.get_member_named(name=discord_handle)
-    member = discord.utils.get(client.get_all_members(), id=discord_handle)
-    the_role = discord.utils.get(member.guild.roles,name=role)
-    #member.add_roles(discord.Role('790265904894050344'))
-    member.add_roles(the_role)
+client.run('Nzg0NzU3MzM1MzIyOTE4OTEz.X8t8OA.21ySTuR_j6Sfe8f11kyPZCaj0rs')
