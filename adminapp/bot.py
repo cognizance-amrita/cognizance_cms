@@ -14,6 +14,3 @@ class Bot:
     def add_role(self, username, role):
         msg = f'jillu admit <@!{username}> {role}'
         self.webhook.send(msg)
-
-
-client.run('Nzg0NzU3MzM1MzIyOTE4OTEz.X8t8OA.21ySTuR_j6Sfe8f11kyPZCaj0rs')
