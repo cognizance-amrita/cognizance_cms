@@ -40,23 +40,23 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4" style="padding: 0px;">
-                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;width:365px;border-radius: 20px;">
                         <div class="card-body">
-                        <a class="nav-link" href="{% url 'apply' %}">
-                            <h4 class="card-title" style="margin-top: 20px;">Apply Now</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/Profile-Male-PNG.png' %}">
-                        </a>                        
+                            <a class="nav-link" href="{% url 'apply' %}">
+                                <h4 class="card-title" style="margin-top: 20px;">Apply Now</h4><img style="margin-top: 25px;margin-bottom: 25px;height:104px;width: 105px;" src="{% static 'img/tech/Profile-Male-PNG.png' %}">
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;border-radius: 20px;">
                         <div class="card-body">
                             <h4 class="card-title" style="margin-top: 20px;">Modify Application</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/writing_thumbnail.png' %}">
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;">
+                    <div class="card" data-bs-hover-animate="pulse" style="text-align: center;border-radius: 20px;">
                         <div class="card-body">
                             <h4 class="card-title" style="margin-top: 20px;">Application Status</h4><img style="margin-top: 25px;margin-bottom: 25px;width: 120px;" src="{% static 'img/tech/tasks_thumbnail.png' %}">
                         </div>
@@ -65,6 +65,7 @@
             </div>
         </div>
     </div>
+    <br><br>
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/bs-init.js' %}"></script>
