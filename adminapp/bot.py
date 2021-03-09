@@ -1,9 +1,5 @@
 from discord import Webhook, RequestsWebhookAdapter
 import requests
-import discord
-from discord.ext import commands
-    
-client = commands.Bot(command_prefix='jillu ')
 
 class Bot:
 

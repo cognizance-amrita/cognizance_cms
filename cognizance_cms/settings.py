@@ -161,7 +161,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'cognizance.amrita@gmail.com'
 EMAIL_GROUP = 'cognizance-recruitment@googlegroups.com'
-EMAIL_HOST_PASSWORD = 'asechn123.'
+EMAIL_HOST_PASSWORD = 'nutzxxhtdiyqmehk'
 
 django_heroku.settings(locals())
 
