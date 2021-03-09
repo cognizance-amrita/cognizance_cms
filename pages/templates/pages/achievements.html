@@ -22,12 +22,12 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="/home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login">LOGIN</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/gallery">GALLERY</a></li>
-                     <li class="nav-item"><a class="nav-link" href="/applications">APPLY</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/achievements">ACHIEVEMENTS</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about">ABOUT US</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">LOGIN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'gallery' %}">GALLERY</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'achievements' %}">ACHIEVEMENTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/applications">APPLY</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'blogs' %}">BLOGS</a></li>
                 </ul>
             </div>
         </div>
@@ -64,7 +64,7 @@
                     <ul>
                         <li><a href="/home">Home</a></li>
                         {% comment %} <li><a href="#">Admin</a></li> {% endcomment %}
-                        <li><a href="#">Login</a></li>
+                        <li><a href="/login">Login</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-3">

@@ -15,6 +15,9 @@ from adminapp.models import Achievement
 def home(request):
     return render(request, 'pages/index.html')
 
+def blogs(request):
+    return render(request, 'pages/blogs.html')
+
 def apply(request):
     if request.method == 'POST':
         fullname = request.POST.get('fullname')
