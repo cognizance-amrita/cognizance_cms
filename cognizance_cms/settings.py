@@ -41,6 +41,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['cognizance-amrita.herokuapp.com','127.0.0.1']
 
+CRONJOBS = [
+    ('0 18 * * *', 'adminapp.cron.periodic_mailer')
+]
+
 
 # Application definition
 
@@ -55,7 +59,8 @@ INSTALLED_APPS = [
     'pages',
     'membersapp',
     'django_celery_beat',
-    'graphene_django'
+    'graphene_django',
+    'django_crontab'
 ]
 
 GRAPHENE = {
