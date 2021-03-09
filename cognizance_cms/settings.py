@@ -54,8 +54,13 @@ INSTALLED_APPS = [
     'adminapp',
     'pages',
     'membersapp',
-    'django_celery_beat'
+    'django_celery_beat',
+    'graphene_django'
 ]
+
+GRAPHENE = {
+ 'SCHEMA': 'src.schema.schema'
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
