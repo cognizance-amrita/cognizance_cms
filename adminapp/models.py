@@ -23,6 +23,17 @@ class Member(models.Model):
     def __str__(self):
         return self.username
 
+class Blog(models.Model):
+    title = models.CharField(max_length=200, null=True)
+    author = models.OneToOneField(Member, on_delete=models.CASCADE)
+    content = models.CharField(max_length=4000, null=True)
+    posted_date = models.DateTimeField(auto_now_add=True, null=True)
+    thumbnail = models.ImageField(upload_to='blogs/thumbnails')
+
+    def __str__(self):
+        return self.title
+    
+
 class Streakcount(models.Model):
     '''
     members = Member.objects.all()
