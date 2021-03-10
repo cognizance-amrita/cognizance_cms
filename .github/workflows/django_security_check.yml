@@ -27,5 +27,5 @@ jobs:
       - name: Upload output
         uses: actions/upload-artifact@v2
         with:
-          name: security_check.txt
-          path: /
+          name: security-check-output
+          path: output.txt
