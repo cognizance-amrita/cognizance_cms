@@ -42,7 +42,7 @@
             {% for blog in blogs %}
                 <div class="card" style="border-radius: 9px;border: 1px solid var(--blue) ; margin-top: 20px;">
                 <div class="card-body" style="border-color: var(--blue);">
-                    <h1 class="d-block float-none" style="width: auto;font-size: 24px;font-weight: bold;color: var(--blue);"><img class="float-none" style="width: 100px;height: 80px;" src = {% static blog.thumbnail %}>&nbsp; &nbsp; {{blog.title}}</h1>
+                    <h1 class="d-block float-none" style="width: auto;font-size: 24px;font-weight: bold;color: var(--blue);"><img class="float-none" style="width: 100px;height: 80px;" src = {% static blog.thumbnail.url %}>&nbsp; &nbsp; {{blog.title}}</h1>
                     <p style="margin-top: 15px;">Author : {{blog.author}}</p>
                     <p style="margin-bottom: 0px;">Posted on: {{blog.posted_date}}</p>
                 </div>
