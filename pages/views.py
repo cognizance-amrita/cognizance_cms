@@ -109,3 +109,9 @@ def contact_us(request):
 
 def gallery(request):
     return render(request, 'pages/gallery.html')
+
+def error404(request, exception):
+    return render(request, 'pages/404.html')
+
+def error500(request):
+    return render(request, 'pages/500.html')

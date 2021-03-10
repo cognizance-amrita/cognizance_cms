@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Error_Page</title>
+        <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.ico' %}" />
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+        <link rel="stylesheet" href="{% static 'fonts/simple-line-icons.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+    </head>
+    
+    <body style="background: url({% static 'img/tech/619899.jpg' %}); background-size: cover;">
+        <div style="margin-top: 20px; margin-left: 20px;">
+        <h1 style="font-size: 75px;font-weight: bold;">404</h1>
+        <h3 style="color: aliceblue; font-weight: bold;">Page not found. Please check the URL.</h3>
+        <section style="margin-top: 5px;">Go back <a href="/home">Home</a></section>
+        </div>
+
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/script.min.js' %}"></script>
+    </body>
+</html>
