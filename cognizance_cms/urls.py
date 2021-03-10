@@ -18,11 +18,12 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
 from .api.schema import schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('graphql/', GraphQLView.as_view(schema=schema, graphiql=False)),
+    path('graphql/', csrf_exempt(GraphQLView.as_view(schema=schema, graphiql=False))),
     path('', include('pages.urls'), name='home'),
     path('adminapp/', include('adminapp.urls'), name='admin-dashboard'),
     path('membersapp/', include('membersapp.urls')),
