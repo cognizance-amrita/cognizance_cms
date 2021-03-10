@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: security-check-output
-          path: security_check.txt
+          path: /security_check.txt
