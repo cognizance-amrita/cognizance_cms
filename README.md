@@ -5,7 +5,7 @@
 
 Club Management System (CMS) is django-based web-app which is specially made for our club. 
 
-![Screenshot](https://github.com/cognizance-amrita/cognizance_cms/blob/master/screenshots/Screen%20Capture_20210101173417.png?raw=true)
+![Screenshot](https://github.com/cognizance-amrita/cognizance_cms/blob/master/screenshots/Screenshot%20(203).png?raw=true)
 
 
 ---
