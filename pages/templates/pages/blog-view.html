@@ -23,7 +23,7 @@
         <div class="container-fluid"><a class="navbar-brand" href="#" style="font-weight: bold;color: var(--gray);">Cognizance Blog</a><button class="navbar-toggler" data-toggle="collapse"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button></div>
     </nav>
     <div class="card" style="margin-top: 45px;margin-left: 5%;margin-right: 5%;border-radius: 37px;padding: 20px;">
-        <div class="card-body"><img style="width: 100%;height: 300px;margin-bottom: 40px;" src="{% static blog.thumbnail.url %}">
+        <div class="card-body"><img style="width: 100%;height: 300px;margin-bottom: 40px;" src="{{blog.thumbnail.url}}">
             <h4 class="card-title" style="font-size: 30px;font-weight: bold;width: auto;text-align: center;padding: 5px;">{{blog.title}}</h4>
             <p style="text-align: center;margin-top: 20px;font-weight: bold;color: var(--gray);font-size: 18px;">Authored by {{blog.author}}</p>
             <p style="text-align: center;margin-top: 20px;color: var(--gray);font-size: 18px;">Posted on {{blog.posted_date}}</p>
