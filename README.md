@@ -36,7 +36,7 @@ as to avoid conflicts with other projects.
     ```bash
         $ virtualenv -p python3
         $ source bin/activate
-        $ pip install -r requirements.txt
+        $ pip3 install -r requirements.txt
     ```   
 
 You have now successfully set up the project on your environment. 
@@ -46,9 +46,9 @@ You have now successfully set up the project on your environment.
 ### After Setting Up
 From now when you start your work, run ``source bin/activate`` inside the project repository and you can work with the django application as usual - 
 
-* `python manage.py migrate` - set up database
-* `python manage.py createsuperuser` - create admin user
-* `python manage.py runserver`  - run the project locally
+* `python3 manage.py migrate` - set up database
+* `python3 manage.py createsuperuser` - create admin user
+* `python3 manage.py runserver`  - run the project locally
 
 *Make sure you pull new changes from remote regularly.*
 
