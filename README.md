@@ -20,7 +20,7 @@ as to avoid conflicts with other projects.
 1. Clone the repository
 
     ```bash
-        $ git clone https://github.com/cognizance2020/cognizance_cms.git
+        $ git clone https://github.com/cognizance-amrita/cognizance_cms.git
         $ cd cognizance_cms
     ```  
 2. 
