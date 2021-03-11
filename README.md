@@ -31,17 +31,13 @@ as to avoid conflicts with other projects.
         $ docker-compose up  
     ```  
 
-    b. Create a python 3 virtualenv, and activate the environment. (Second option)  
+    b. Create a python 3 virtualenv, activate the environment and Install the project dependencies. (Second option)  
 
     ```bash
         $ virtualenv -p python3
         $ source bin/activate
-    ```   
- 3. Install the project dependencies  
- 
-    ```bash
         $ pip install -r requirements.txt
-    ```
+    ```   
 
 You have now successfully set up the project on your environment. 
 
