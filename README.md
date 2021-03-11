@@ -17,27 +17,27 @@ as to avoid conflicts with other projects.
 0. Make sure that you have `Python 3`, `python-3-devel`, `gcc`, `virtualenv`, and `pip` installed.     
 1. Clone the repository
 
-    ```
-        $ git clone https://github.com/cognizance2020/cognizance_cms.git
-        $ cd cognizance_cms
-    ```  
+```bash
+    $ git clone https://github.com/cognizance2020/cognizance_cms.git
+    $ cd cognizance_cms
+```  
 2a. Docker image (First option)  
   
-  ```  
+```bash  
     $ docker-compose build  
     $ docker-compose up  
-  ```  
+```  
 2b. Create a python 3 virtualenv, and activate the environment. (Second option)  
 
-    ```bash
-        $ virtualenv -p python3
-        $ source bin/activate
-    ```   
+```bash
+    $ virtualenv -p python3
+    $ source bin/activate
+```   
  Install the project dependencies  
  
-    ```
-        $ pip install -r requirements.txt
-    ```
+```bash
+    $ pip install -r requirements.txt
+```
 
 You have now successfully set up the project on your environment. 
 
