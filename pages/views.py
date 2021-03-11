@@ -6,7 +6,7 @@ from django.contrib import messages
 from .decorators import unAuthenticated_user, allowed_users
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from adminapp.models import Member
+from adminapp.models import Member, Blog
 from .models import Application
 from adminapp.models import Achievement
 
@@ -16,7 +16,16 @@ def home(request):
     return render(request, 'pages/index.html')
 
 def blogs(request):
-    return render(request, 'pages/blogs.html')
+    blogs = Blog.objects.all()
+    count = Blog.objects.count
+    if count == 0:
+        return render(request, 'pages/blogs.html', {'blogs':blogs, 'empty': 0})
+    else:
+        return render(request, 'pages/blogs.html', {'blogs':blogs})
+
+def blog_view(request, blog_id):
+    blog = Blog.objects.get(id=blog_id)
+    return render(request, 'pages/blog-view.html', {'blog':blog})
 
 def apply(request):
     if request.method == 'POST':

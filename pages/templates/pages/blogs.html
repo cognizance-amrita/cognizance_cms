@@ -35,15 +35,22 @@
     </nav>
     <div class="card" style="margin-top: 125px;border-style: none;">
         <div class="card-body">
-            <h4 class="card-title" style="font-weight: bold;color: var(--gray);margin-bottom: 0px;margin-left: 50px;margin-top: 20px;font-size: 30px;">Blogs</h4>
-            <p style="margin-top: 30px;margin-left: 50px;font-size: 20px;">Currently there are no blogs.</p>
-            <div class="card" style="border-radius: 9px;border: 1px solid var(--blue) ;">
-                <div class="card-body" style="border-color: var(--blue);">
-                    <h1 class="d-block float-none" style="width: auto;font-size: 24px;font-weight: bold;color: var(--blue);"><img class="float-none" style="width: 100px;height: 80px;">&nbsp; &nbsp; Blog Title</h1>
-                    <p style="margin-top: 15px;">Author :&nbsp;</p>
-                    <p style="margin-bottom: 0px;">Posted on:&nbsp;</p>
-                </div>
-            </div>
+            <h4 class="card-title" style="font-weight: bold;color: var(--gray);margin-bottom: 20px;margin-left: 50px;margin-top: 20px;font-size: 30px;">Blogs</h4>
+            {% if empty %}
+                <p style="margin-top: 60px;margin-left: 50px;font-size: 20px;">Currently there are no blogs.</p>
+            {% else %}
+            {% for blog in blogs %}
+                <a href="{{blog.id}}/" style="text-decoration: none;">
+                    <div class="card" style="border-radius: 9px;border: 1px solid var(--blue) ; margin-top: 20px;">
+                        <div class="card-body" style="border-color: var(--blue);">
+                            <h1 class="d-block float-none" style="width: auto;font-size: 24px;font-weight: bold;color: var(--blue);"><img class="float-none" style="width: 100px;height: 80px;" src = {% static blog.thumbnail.url %}>&nbsp; &nbsp; {{blog.title}}</h1>
+                            <p style="margin-top: 15px;">Author : {{blog.author}}</p>
+                            <p style="margin-bottom: 0px;">Posted on: {{blog.posted_date}}</p>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
     <script src="{% static 'js/jquery.min.js' %}"></script>
