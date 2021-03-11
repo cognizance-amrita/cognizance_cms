@@ -1,6 +1,6 @@
 # Cognizance Club Management System (CCMS)
 [![Django Security Check](https://github.com/cognizance-amrita/cognizance_cms/actions/workflows/django_security_check.yml/badge.svg)](https://github.com/cognizance-amrita/cognizance_cms/actions/workflows/django_security_check.yml)
-
+[![CodeQL](https://github.com/cognizance-amrita/cognizance_cms/actions/workflows/codeql-analysis.yml/badge.svg?event=push)](https://github.com/cognizance-amrita/cognizance_cms/actions/workflows/codeql-analysis.yml)
 <br/>
 
 Club Management System (CMS) is django-based web-app which is specially made for our club. 
