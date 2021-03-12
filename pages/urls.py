@@ -19,8 +19,6 @@ urlpatterns = [
     path('membersapp/', mDashboard, name='membersapp'),
     path('logout/', views.logoutApp, name='logout'),
     path('apply/',views.apply, name='apply'),
-    path('<str:member_name>/',views.member),
-    path('blogs/<int:blog_id>/',views.blog_view),
     path('reset_password/',
         auth_views.PasswordResetView.as_view(template_name="pages/password_reset.html"),
         name="reset_password"),   
@@ -32,7 +30,10 @@ urlpatterns = [
         name="password_reset_confirm"),   
     path('reset_password_complete/',
         auth_views.PasswordResetCompleteView.as_view(template_name="pages/password_reset_done.html"), 
-        name="password_reset_complete"),   
+        name="password_reset_complete"), 
+    path('<str:member_name>/',views.member),
+    path('blogs/<int:blog_id>/',views.blog_view),
+      
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
