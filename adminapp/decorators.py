@@ -4,7 +4,7 @@ from django.shortcuts import redirect
 def unAuthenticated_user(view_func):
     def wrapper_func(request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('home')
+            return redirect('dashboard')
         else:
             return view_func(request, *args, **kwargs)
     
@@ -34,5 +34,5 @@ def admin_only(view_func):
         if group == 'administrator':
             return view_func(request, *args, **kwargs)
         else:
-            return redirect('home')
+            return redirect('dashboard')
     return wrapper_func
