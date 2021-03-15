@@ -20,11 +20,11 @@ from datetime import timedelta
 from .tasks import *
 from .bot import Bot
 from .cron import periodic_mailer
+from .service import create_service
 
 @allowed_users(allowed_roles=['administrator'])
 async def dashboard(request):
     dates = StatusUpdate.objects.order_by('date').values('date').distinct()
-
     if len(dates) != 0:
         sdate =  dates[len(dates)-1]['date']
     else:
@@ -33,7 +33,7 @@ async def dashboard(request):
         sdate = today - timedelta(days = 1) 
         if str(time)<'06:00:00':
             sdate =  sdate - timedelta(days = 1)
-        elif(str(time)=='08:34:00'):
+        elif(str(time)=='06:00:00'):
             periodic_mailer()
         sdate = sdate.strftime("%Y-%m-%d")
     
