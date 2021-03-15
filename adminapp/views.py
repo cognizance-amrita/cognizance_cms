@@ -19,23 +19,25 @@ from datetime import date
 from datetime import timedelta 
 from .tasks import *
 from .bot import Bot
+from .cron import periodic_mailer
 
 @allowed_users(allowed_roles=['administrator'])
-def dashboard(request):
-	dates = StatusUpdate.objects.order_by('date').values('date').distinct()
+async def dashboard(request):
+    dates = StatusUpdate.objects.order_by('date').values('date').distinct()
 
-	if len(dates) != 0:
-		sdate =  dates[len(dates)-1]['date']
-	else:
-		time = datetime.now().strftime("%H:%M:%S")
-		today = date.today()
-		sdate = today - timedelta(days = 1) 
-		if str(time)<'06:00:00':
-			sdate =  sdate - timedelta(days = 1)
-		sdate = sdate.strftime("%Y-%m-%d")
-	return render(request, 'adminapp/admin-dashboard.html',{'sdate':sdate})
-
-
+    if len(dates) != 0:
+        sdate =  dates[len(dates)-1]['date']
+    else:
+        time = datetime.now().strftime("%H:%M:%S")
+        today = date.today()
+        sdate = today - timedelta(days = 1) 
+        if str(time)<'06:00:00':
+            sdate =  sdate - timedelta(days = 1)
+        elif(str(time)=='08:34:00'):
+            periodic_mailer()
+        sdate = sdate.strftime("%Y-%m-%d")
+    
+    return render(request, 'adminapp/admin-dashboard.html',{'sdate':sdate})
 
 def announcements(request):
 
@@ -221,7 +223,7 @@ def status_updates(request,sdate):
     listdictdates = StatusUpdate.objects.order_by('date').values('date').distinct()
     dates=[] 
     for i in range(0,len(listdictdates)):
-    	dates.append(listdictdates[i]['date'].strftime("%Y-%m-%d"))
+        dates.append(listdictdates[i]['date'].strftime("%Y-%m-%d"))
     members = Member.objects.all()    
     if sdate not in dates:
         mem_email_queryset = Member.objects.values('email')
@@ -243,8 +245,8 @@ def status_updates(request,sdate):
                 details = StatusUpdate.objects.all()	
                 sub_users=[]
                 for mem in details:
-                	if (mem.date.strftime("%Y-%m-%d")==lates_date):
-                	    sub_users.append(mem)
+                    if (mem.date.strftime("%Y-%m-%d")==lates_date):
+                        sub_users.append(mem)
                 notsub = []
                 mem = Member.objects.values('username')
                 mem_usr=[]
@@ -252,7 +254,7 @@ def status_updates(request,sdate):
                     mem_usr.append(mem[ik]['username'])
                 sub_usr=[]
                 for il in range(0,len(sub_users)):
-                	sub_usr.append(sub_users[il].username)
+                    sub_usr.append(sub_users[il].username)
                 notsub= list(set(mem_usr)-set(sub_usr))
                 for st in range(len(notsub)):
                     meme = Member.objects.get(username=notsub[st])
@@ -269,8 +271,8 @@ def status_updates(request,sdate):
             details = StatusUpdate.objects.all()	
             sub_users=[]
             for mem in details:
-            	if (mem.date.strftime("%Y-%m-%d")==data[-1][2]):
-            	    sub_users.append(mem)
+                if (mem.date.strftime("%Y-%m-%d")==data[-1][2]):
+                    sub_users.append(mem)
             notsub = []
             mem = Member.objects.values('username')
             mem_usr=[]
@@ -278,7 +280,7 @@ def status_updates(request,sdate):
                 mem_usr.append(mem[i]['username'])
             sub_usr=[]
             for i in range(0,len(sub_users)):
-            	sub_usr.append(sub_users[i].username)
+                sub_usr.append(sub_users[i].username)
             notsub= list(set(mem_usr)-set(sub_usr))
             for st in range(len(notsub)):
                 meme = Member.objects.get(username=notsub[st])
@@ -291,13 +293,13 @@ def status_updates(request,sdate):
     details = StatusUpdate.objects.all()	
     sub_users=[]
     for mem in details:
-    	if (mem.date.strftime("%Y-%m-%d")==sdate):
-    	    sub_users.append(mem)
+        if (mem.date.strftime("%Y-%m-%d")==sdate):
+            sub_users.append(mem)
     today = date.today()
     yesterday = today - timedelta(days = 1) 
     time = datetime.now().strftime("%H:%M:%S")
     if str(time)<'06:00:00':
-    	yesterday =  yesterday - timedelta(days = 1)
+        yesterday =  yesterday - timedelta(days = 1)
     latest_date = yesterday.strftime("%Y-%m-%d")
     notsub = []
     mem = Member.objects.values('username')
@@ -306,10 +308,10 @@ def status_updates(request,sdate):
         mem_usr.append(mem[i]['username'])
     sub_usr=[]
     for i in range(0,len(sub_users)):
-    	sub_usr.append(sub_users[i].username)
+        sub_usr.append(sub_users[i].username)
     notsub= list(set(mem_usr)-set(sub_usr)) 
     return render(request, 'adminapp/status-updates.html',{'DATE':dates,'sdate':sdate,'sub_users':sub_users,
-    	'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,'notsubmitted':notsub,'members':members})
+        'yesterday':yesterday.strftime("%Y-%m-%d"),'latest_date':latest_date,'notsubmitted':notsub,'members':members})
 
 
 def add_meeting(request):

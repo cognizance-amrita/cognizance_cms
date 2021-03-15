@@ -37,7 +37,7 @@ MEDIA_URL = '/image/'
 SECRET_KEY = '-l_p92!kg)+ptgu0-83-)u=x+y+nd4vu(_f&*o2!36#@vd5sr6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['cognizance-amrita.herokuapp.com','127.0.0.1']
 
@@ -163,6 +163,8 @@ USE_TZ = False
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR, 'cognizance_cms/static')
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
