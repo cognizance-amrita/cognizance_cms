@@ -23,7 +23,7 @@ from .cron import periodic_mailer
 from .service import create_service
 
 @allowed_users(allowed_roles=['administrator'])
-async def dashboard(request):
+def dashboard(request):
     dates = StatusUpdate.objects.order_by('date').values('date').distinct()
     if len(dates) != 0:
         sdate =  dates[len(dates)-1]['date']
