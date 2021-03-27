@@ -37,7 +37,7 @@ MEDIA_URL = '/image/'
 SECRET_KEY = '-l_p92!kg)+ptgu0-83-)u=x+y+nd4vu(_f&*o2!36#@vd5sr6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['cognizance-amrita.herokuapp.com','127.0.0.1']
 
@@ -177,36 +177,3 @@ EMAIL_HOST_PASSWORD = 'nutzxxhtdiyqmehk'
 
 django_heroku.settings(locals())
 
-# LOGGING IN PRODUCTION STATE
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'formatters': {
-#         'verbose': {
-#             'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-#             'datefmt' : "%d/%b/%Y %H:%M:%S"
-#         },
-#         'simple': {
-#             'format': '%(levelname)s %(message)s'
-#         },
-#     },
-#     'handlers': {
-#         'file': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': 'mysite.log',
-#             'formatter': 'verbose'
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers':['file'],
-#             'propagate': True,
-#             'level':'DEBUG',
-#         },
-#         'MYAPP': {
-#             'handlers': ['file'],
-#             'level': 'DEBUG',
-#         },
-#     }
-# }
