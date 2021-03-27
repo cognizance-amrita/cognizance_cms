@@ -22,3 +22,4 @@ db.sqlite3
 .vscode
 vir
 python3
+mysite.log
