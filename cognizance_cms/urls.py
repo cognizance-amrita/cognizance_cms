@@ -28,6 +28,4 @@ urlpatterns = [
     path('membersapp/', include('membersapp.urls')),
 ]
 
-handler404 = 'pages.views.error_404_view'
-handler500 = 'pages.views.error_500_view'
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
