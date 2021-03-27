@@ -11,6 +11,11 @@ from .models import Application
 from adminapp.models import Achievement
 
 # Create your views here.
+def error_404_view(request,exception):
+    return render(request,'404.html')
+
+def error_500_view(request):
+    return render(request,'pages/500.html')
 
 def home(request):
     return render(request, 'pages/index.html')
