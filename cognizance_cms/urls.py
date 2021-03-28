@@ -22,7 +22,7 @@ from .api.schema import schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('graphql/', GraphQLView.as_view(schema=schema, graphiql=True)),
+    path('graphql/', GraphQLView.as_view(schema=schema, graphiql=False)),
     path('', include('pages.urls'), name='home'),
     path('adminapp/', include('adminapp.urls'), name='admin-dashboard'),
     path('membersapp/', include('membersapp.urls')),
