@@ -60,9 +60,14 @@ INSTALLED_APPS = [
     'membersapp',
     'django_celery_beat',
     'graphene_django',
-    'django_crontab'
+    'django_crontab',
+    'corsheaders',
+    'rest_framework',
 ]
-
+CORS_ORIGIN_WHITELIST = [
+     'http://localhost:3000',
+     'http://localhost:3001',
+]
 GRAPHENE = {
  'SCHEMA': 'src.schema.schema'
 }
