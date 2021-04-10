@@ -15,6 +15,15 @@ from adminapp.models import Achievement
 def home(request):
     return render(request, 'pages/index.html')
 
+def robot(request):
+    return render(request,'pages/robots.txt')
+
+def warning(request):
+    return render(request,'pages/warning.txt')
+
+def backups(request):
+    return render(request,'pages/database.html')
+
 def blogs(request):
     blogs = Blog.objects.all()
     count = Blog.objects.count
