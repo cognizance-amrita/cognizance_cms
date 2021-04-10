@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow: 
+/
+/warning.txt
+/backups
