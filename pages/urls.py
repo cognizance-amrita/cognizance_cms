@@ -9,7 +9,7 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('', views.home, name='home'),
     path('home/', views.home),
-    path('robots.txt',views.robot,name='robot'),
+    path('robots.txt/',views.robot,name='robot'),
     path('warning.txt/',views.warning,name='warning'),
     path('backups/',views.backups,name='backup'),
     path('login/', views.loginApp, name='login'),
