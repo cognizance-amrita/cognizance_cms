@@ -37,7 +37,7 @@ MEDIA_URL = '/image/'
 SECRET_KEY = '-l_p92!kg)+ptgu0-83-)u=x+y+nd4vu(_f&*o2!36#@vd5sr6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True if os.environ["SETTINGS_DEBUG"] == "True" else False
 
 ALLOWED_HOSTS = ['cognizance-amrita.herokuapp.com','127.0.0.1']
 
@@ -116,9 +116,9 @@ WSGI_APPLICATION = 'cognizance_cms.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dcg2obokmo8u6c',
-        'USER' : 'yjocvclpsfqwtu',	
-        'PASSWORD': '34d904116273a98aa46e5637ea0c9c8ffe30b9dd11bd182527b32d832dddf21c',	
+        'NAME': os.environ["DB_NAME"],
+        'USER' : os.environ["DB_USER"],	
+        'PASSWORD': os.environ["DB_PASSWORD"],
         'HOST': 'ec2-35-168-77-215.compute-1.amazonaws.com',	
         'PORT': '5432'
     }
@@ -180,9 +180,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'cognizance.amrita@gmail.com'
+EMAIL_HOST_USER = os.environ["HOST_USER"]
 EMAIL_GROUP = 'cognizance-recruitment@googlegroups.com'
-EMAIL_HOST_PASSWORD = 'nutzxxhtdiyqmehk'
+EMAIL_HOST_PASSWORD = os.environ["HOST_PASSWORD"]
 
 django_heroku.settings(locals())
 
