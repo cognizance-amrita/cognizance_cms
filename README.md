@@ -60,3 +60,4 @@ From now when you start your work, run ``source bin/activate`` inside the projec
 * [Sanjai Siddharthan](https://github.com/SSpirate)  
 * [Mukesh](https://github.com/mukesh663)
 * [Pranavan](https://github.com/Techipeeyon)
+* [thunder-007](https://github.com/thunder-007)
